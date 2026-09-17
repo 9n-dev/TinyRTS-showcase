@@ -17,127 +17,134 @@
 </head>
 <body>
 
-<nav class="top"><a href="index.html" lang="en" hreflang="en">English version</a></nav>
-
-<header class="hero">
-  <h1 class="banner">TinyRTS</h1>
-  <p class="tagline">Un pequeño juego de estrategia en tiempo real, hecho desde cero en Godot 4 y C#.</p>
-  <div class="frame">
-    <video controls playsinline preload="metadata" poster="media/trailer-poster.jpg">
-      <source src="media/trailer-es-720p.webm" type="video/webm">
-      <source src="media/trailer-es-720p.mp4" type="video/mp4">
-      El tráiler es un mp4 de 55 segundos. <a href="media/trailer-es-720p.mp4">Abrir el vídeo.</a>
-    </video>
+<nav class="top" aria-label="Site">
+  <a class="wordmark" href="#top">TinyRTS</a>
+  <div class="top-links">
+      <a href="#game">El juego</a>
+      <a href="#maps">Mapas</a>
+      <a href="#gallery">Capturas</a>
+      <a href="#built">Cómo está hecho</a>
+      <a href="#credits">Créditos</a>
+    <a class="lang" href="index.html" lang="en" hreflang="en">English version</a>
   </div>
-  <p class="links">
-    Tráiler de 55 segundos. A calidad completa en la <a href="https://github.com/9n-dev/TinyRTS-showcase/releases/latest">release de GitHub</a>.
-    <a href="https://github.com/9n-dev/TinyRTS-showcase">Repositorio</a>.
-  </p>
+</nav>
+
+<header class="hero" id="top">
+  <video id="hero-bg" class="hero-bg" autoplay muted loop playsinline preload="auto" poster="media/trailer-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="media/trailer-es-720p.webm" type="video/webm">
+    <source src="media/trailer-es-720p.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
+  <div class="hero-body">
+    <h1 class="banner">TinyRTS</h1>
+    <p class="tagline">Un pequeño juego de estrategia en tiempo real, hecho desde cero en Godot 4 y C#.</p>
+    <p class="hero-actions">
+      <a class="btn btn-primary" id="play-trailer" href="media/trailer-es-720p.mp4" data-open-trailer>Ver el tráiler</a>
+      <a class="btn" href="#maps">Explorar los mapas</a>
+    </p>
+    <p class="hero-note">52 segundos, con sonido. A calidad completa en la <a href="https://github.com/9n-dev/TinyRTS-showcase/releases/latest">release de GitHub</a>. <a href="https://github.com/9n-dev/TinyRTS-showcase">Repositorio</a>.</p>
+  </div>
 </header>
 
 <main>
-  <section class="sheet">
+  <section class="sheet" id="game">
     <h2>Qué se hace en una partida</h2>
-    <p>Empiezas con un Castillo, tres Peones y unos pocos recursos. Los Peones talan, pican oro y llevan cada carga
-      al Castillo a mano. Los árboles dejan tocón y las vetas se agotan, así que antes o después levantas un segundo
-      Castillo sobre el siguiente grupo de recursos. Los corrales dan comida sin trabajo; las Casas suben la
-      población; el Cuartel, la Arquería y el Monasterio entrenan Guerreros, Arqueros, Lanceros y Monjes; nueve
-      tecnologías en tres ramas lo afilan todo.</p>
-    <p>El mapa se comparte con campamentos neutrales: goblins, trolls, nidos de arañas, guaridas de ladrones, calas
-      piratas en el agua. Cada uno tiene guardianes, un puesto fijo que defienden, regeneración si los dejas en paz y
-      una recompensa al limpiarlo. Mercados, mercenarios y tabernas neutrales esperan en el centro del mapa a quien
-      llegue primero. Gana el último jugador con un Castillo en pie.</p>
+    <p>Empiezas con un Castillo, tres Peones y unos pocos recursos. Los Peones talan, pican oro y llevan cada carga al Castillo a mano. Los árboles dejan tocón y las vetas se agotan, así que antes o después levantas un segundo Castillo sobre el siguiente grupo de recursos. Los corrales dan comida sin trabajo; las Casas suben la población; el Cuartel, la Arquería y el Monasterio entrenan Guerreros, Arqueros, Lanceros y Monjes; nueve tecnologías en tres ramas lo afilan todo.</p>
+    <p>El mapa se comparte con campamentos neutrales: goblins, trolls, nidos de arañas, guaridas de ladrones, calas piratas en el agua. Cada uno tiene guardianes, un puesto fijo que defienden, regeneración si los dejas en paz y una recompensa al limpiarlo. Mercados, mercenarios y tabernas neutrales esperan en el centro del mapa a quien llegue primero. Gana el último jugador con un Castillo en pie.</p>
     <div class="pair">
-      <figure><video autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="Una aldea viva: Peones recolectando y construyendo mientras se entrena tropa"><source src="media/clip-village.webm" type="video/webm"><source src="media/clip-village.mp4" type="video/mp4"></video><figcaption>Una aldea viva</figcaption></figure>
-      <figure><video autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="Ejércitos azul y rojo chocando bajo las torres rojas"><source src="media/clip-battle.webm" type="video/webm"><source src="media/clip-battle.mp4" type="video/mp4"></video><figcaption>Una batalla entre jugadores</figcaption></figure>
-      <figure><video autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="Limpiando una aldea goblin defendida por goblins con lanza y antorcha"><source src="media/clip-camps.webm" type="video/webm"><source src="media/clip-camps.mp4" type="video/mp4"></video><figcaption>Limpiando un campamento neutral</figcaption></figure>
-      <figure><video autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="Pintando un bosque, un campamento y una torre en el editor, y jugando el mapa"><source src="media/clip-editor.webm" type="video/webm"><source src="media/clip-editor.mp4" type="video/mp4"></video><figcaption>El editor de mapas</figcaption></figure>
+      <figure><video class="clip" muted loop playsinline preload="metadata" width="960" height="540" aria-label="Una aldea viva: Peones recolectando y construyendo mientras se entrena tropa"><source src="media/clip-village.webm" type="video/webm"><source src="media/clip-village.mp4" type="video/mp4"></video><figcaption>Una aldea viva</figcaption></figure>
+      <figure><video class="clip" muted loop playsinline preload="metadata" width="960" height="540" aria-label="Ejércitos azul y rojo chocando bajo las torres rojas"><source src="media/clip-battle.webm" type="video/webm"><source src="media/clip-battle.mp4" type="video/mp4"></video><figcaption>Una batalla entre jugadores</figcaption></figure>
+      <figure><video class="clip" muted loop playsinline preload="metadata" width="960" height="540" aria-label="Limpiando una aldea goblin defendida por goblins con lanza y antorcha"><source src="media/clip-camps.webm" type="video/webm"><source src="media/clip-camps.mp4" type="video/mp4"></video><figcaption>Limpiando un campamento neutral</figcaption></figure>
+      <figure><video class="clip" muted loop playsinline preload="metadata" width="960" height="540" aria-label="Pintando un bosque, un campamento y una torre en el editor, y jugando el mapa"><source src="media/clip-editor.webm" type="video/webm"><source src="media/clip-editor.mp4" type="video/mp4"></video><figcaption>El editor de mapas</figcaption></figure>
     </div>
   </section>
 
-  <section class="sheet">
+  <section class="sheet" id="features">
     <h2>Características</h2>
     <ul>
       <li><strong>Simulación en tiempo real</strong> a paso fijo de 20 Hz, dibujada a 60 fps interpolando entre ticks.</li>
-      <li><strong>Movimiento libre en píxeles.</strong> A* sobre la cuadrícula de 64 px sin cortar esquinas, suavizado del
-        camino y separación local por hash espacial. Las unidades nunca bloquean casillas; edificios, recursos y terreno sí.
-        200 unidades cruzan el mapa a 60 fps.</li>
-      <li><strong>Una economía de viajes.</strong> Árboles y vetas finitos, Peones que recolectan, se cargan y entregan,
-        comida pasiva de los corrales y expansión con un segundo Castillo. Mercado, mercenarios y taberna neutrales.</li>
-      <li><strong>Altura que cuenta.</strong> Mesetas y acantilados unidos solo por escaleras laterales de una casilla. Las
-        unidades a distancia y las torres ganan alcance y visión desde arriba; el cuerpo a cuerpo nunca cruza un borde.</li>
-      <li><strong>21 tipos de campamento neutral</strong> con 24 criaturas del Enemy Pack, incluidos guardianes estáticos de
-        agua como el tiburón arponero y el pez bomba. El mapa de cuatro jugadores tiene 33 campamentos.</li>
-      <li><strong>IA rival</strong> para dos a cuatro jugadores que se expande, comercia en el mercado, levanta torres camino
-        del enemigo y elige el objetivo de cada oleada por distancia o debilidad. Ajustada jugando cientos de partidas
-        simuladas, porque la simulación no tiene azar y una sola partida es una muestra caótica, no una medida.</li>
-      <li><strong>Niebla de guerra</strong> de tres estados, minimapa con avisos y controles de Warcraft 3: recuadro, click
-        derecho contextual, atacar en movimiento, parar y mantener, grupos de control, bordes y WASD. Todas las teclas se
-        pueden reasignar.</li>
-      <li><strong>Editor de mapas</strong> al estilo Mario Maker. Se pinta terreno, recursos, campamentos y posiciones de
-        salida sobre el mundo real, P prueba el mapa en menos de una décima de segundo y Esc devuelve al editor. Pincel,
-        rectángulo, cubo y selección, copiar y pegar, girar y espejar, y un comprobador que avisa de bases inaccesibles,
-        recursos vigilados o falta de sitio para construir.</li>
-      <li><strong>Tres mapas oficiales.</strong> El Valle (96×64, dos jugadores), La Encrucijada (160×160, cuatro jugadores,
-        simetría rotacional) y Cuatro vientos, hecho con el editor. Los dos primeros salen de generadores en Python que
-        validan simetría, conectividad, anchura de los cuellos y distancias entre bases.</li>
+      <li><strong>Movimiento libre en píxeles.</strong> A* sobre la cuadrícula de 64 px sin cortar esquinas, suavizado del camino y separación local por hash espacial. Las unidades nunca bloquean casillas; edificios, recursos y terreno sí. 200 unidades cruzan el mapa a 60 fps.</li>
+      <li><strong>Una economía de viajes.</strong> Árboles y vetas finitos, Peones que recolectan, se cargan y entregan, comida pasiva de los corrales y expansión con un segundo Castillo. Mercado, mercenarios y taberna neutrales.</li>
+      <li><strong>Altura que cuenta.</strong> Mesetas y acantilados unidos solo por escaleras laterales de una casilla. Las unidades a distancia y las torres ganan alcance y visión desde arriba; el cuerpo a cuerpo nunca cruza un borde.</li>
+      <li><strong>21 tipos de campamento neutral</strong> con 24 criaturas del Enemy Pack, incluidos guardianes estáticos de agua como el tiburón arponero y el pez bomba. El mapa de cuatro jugadores tiene 33 campamentos.</li>
+      <li><strong>IA rival</strong> para dos a cuatro jugadores que se expande, comercia en el mercado, levanta torres camino del enemigo y elige el objetivo de cada oleada por distancia o debilidad. Ajustada jugando cientos de partidas simuladas, porque la simulación no tiene azar y una sola partida es una muestra caótica, no una medida.</li>
+      <li><strong>Niebla de guerra</strong> de tres estados, minimapa con avisos y controles de Warcraft 3: recuadro, click derecho contextual, atacar en movimiento, parar y mantener, grupos de control, bordes y WASD. Todas las teclas se pueden reasignar.</li>
+      <li><strong>Editor de mapas</strong> al estilo Mario Maker. Se pinta terreno, recursos, campamentos y posiciones de salida sobre el mundo real, P prueba el mapa en menos de una décima de segundo y Esc devuelve al editor. Pincel, rectángulo, cubo y selección, copiar y pegar, girar y espejar, y un comprobador que avisa de bases inaccesibles, recursos vigilados o falta de sitio para construir.</li>
+      <li><strong>Tres mapas oficiales.</strong> El Valle (96×64, dos jugadores), La Encrucijada (160×160, cuatro jugadores, simetría rotacional) y Cuatro vientos, hecho con el editor. Los dos primeros salen de generadores en Python que validan simetría, conectividad, anchura de los cuellos y distancias entre bases.</li>
       <li>Ranuras de guardado con autoguardado, español e inglés, 59 sonidos, música y ambiente.</li>
     </ul>
   </section>
 
-  <section class="sheet">
-    <h2>Capturas</h2>
-    <div class="gallery">
-      <figure><img src="media/village.png" width="1280" height="720" alt="Una aldea grande con casas, monasterio, cuartel y torres" loading="lazy"><figcaption>Una aldea a pleno rendimiento</figcaption></figure>
-      <figure><img src="media/battle.png" width="1280" height="720" alt="Ejércitos azul y rojo peleando junto a una torre y un Castillo rojos" loading="lazy"><figcaption>Asalto a una base roja</figcaption></figure>
-      <figure><img src="media/stairs.png" width="1280" height="720" alt="Una meseta con una escalera lateral tallada en el acantilado" loading="lazy"><figcaption>Una meseta y su escalera lateral</figcaption></figure>
-      <figure><img src="media/plateau.png" width="1280" height="720" alt="Un corral sobre una meseta por encima del bosque" loading="lazy"><figcaption>Un corral en alto</figcaption></figure>
-      <figure><img src="media/cove.png" width="1280" height="720" alt="Arqueros en la orilla disparando a un tiburón arponero y un pez bomba en el agua" loading="lazy"><figcaption>La cala pirata</figcaption></figure>
-      <figure><img src="media/spiders.png" width="1280" height="720" alt="Guerreros y arqueros peleando con arañas junto a una charca" loading="lazy"><figcaption>Un nido de arañas</figcaption></figure>
-      <figure><img src="media/menu.png" width="1280" height="720" alt="Menú principal sobre un panel de pergamino con banda azul" loading="lazy"><figcaption>Menú principal</figcaption></figure>
-      <figure><img src="media/training.png" width="1280" height="720" alt="El panel del Castillo con la cola de entrenamiento y el punto de reunión" loading="lazy"><figcaption>Cola de entrenamiento del Castillo</figcaption></figure>
-      <figure><img src="media/editor.png" width="1280" height="720" alt="El editor de mapas con su barra de piezas y de herramientas" loading="lazy"><figcaption>El editor de mapas</figcaption></figure>
-      <figure><img src="media/victory.png" width="1280" height="720" alt="El panel de victoria al caer el Castillo enemigo" loading="lazy"><figcaption>Victoria</figcaption></figure>
+  <section class="sheet sheet-wide" id="maps">
+    <h2>Los mapas, dibujados desde sus datos</h2>
+    <p>Estos son los tres mapas oficiales tal y como los guarda el juego: un carácter por casilla para el terreno, más listas de árboles, vetas de oro, campamentos, edificios neutrales y posiciones de salida. Pasa el ratón para ver qué hay en cada sitio.</p>
+    <div id="map-explorer">
+      <div class="map-tabs" role="tablist">
+        <button class="map-tab" role="tab" data-map="valley">El Valle</button>
+        <button class="map-tab" role="tab" data-map="crossroads">La Encrucijada</button>
+        <button class="map-tab" role="tab" data-map="cuatro-vientos">Cuatro vientos</button>
+      </div>
+      <p class="map-desc"></p>
+      <div class="map-stage">
+        <canvas aria-label="Map"></canvas>
+        <div class="map-tip" hidden></div>
+      </div>
+      <p class="map-info"></p>
+      <ul class="map-legend">
+        <li><i style="background:#4fb0b3"></i>Agua</li>
+        <li><i style="background:#8fc357"></i>Hierba</li>
+        <li><i style="background:#b3d96a"></i>Meseta</li>
+        <li><i style="background:#4a7473"></i>Acantilado</li>
+        <li><i style="background:#d1bb6e"></i>Escalera</li>
+        <li><i style="background:#3c7d3b"></i>Árbol</li>
+        <li><i style="background:#f2c03a"></i>Veta de oro</li>
+        <li><i style="background:#c8503c"></i>Campamento</li>
+        <li><i style="background:#2f7f83"></i>Campamento de agua</li>
+        <li><i style="background:#e9c552"></i>Mercado, mercenarios o taberna</li>
+        <li><i style="background:#3f8fbf"></i>Posición de salida</li>
+      </ul>
     </div>
   </section>
 
-  <section class="sheet">
+  <section class="sheet sheet-wide" id="gallery">
+    <h2>Capturas</h2>
+    <div class="gallery">
+      <figure><a class="shot" href="media/village.png"><img src="media/village.png" width="1280" height="720" alt="Una aldea grande con casas, monasterio, cuartel y torres" loading="lazy"></a><figcaption>Una aldea a pleno rendimiento</figcaption></figure>
+      <figure><a class="shot" href="media/battle.png"><img src="media/battle.png" width="1280" height="720" alt="Ejércitos azul y rojo peleando junto a una torre y un Castillo rojos" loading="lazy"></a><figcaption>Asalto a una base roja</figcaption></figure>
+      <figure><a class="shot" href="media/spiders.png"><img src="media/spiders.png" width="1280" height="720" alt="Guerreros y arqueros peleando con arañas junto a una charca" loading="lazy"></a><figcaption>Un nido de arañas</figcaption></figure>
+      <figure><a class="shot" href="media/goblin-village.png"><img src="media/goblin-village.png" width="1280" height="720" alt="Una aldea goblin con un troll, cerrada por bosque con una sola entrada" loading="lazy"></a><figcaption>Una aldea goblin neutral</figcaption></figure>
+      <figure><a class="shot" href="media/stairs.png"><img src="media/stairs.png" width="1280" height="720" alt="Una meseta con una escalera lateral tallada en el acantilado" loading="lazy"></a><figcaption>Una meseta y su escalera lateral</figcaption></figure>
+      <figure><a class="shot" href="media/plateau.png"><img src="media/plateau.png" width="1280" height="720" alt="Un corral sobre una meseta por encima del bosque" loading="lazy"></a><figcaption>Un corral en alto</figcaption></figure>
+      <figure><a class="shot" href="media/menu.png"><img src="media/menu.png" width="1280" height="720" alt="Menú principal sobre un panel de pergamino con banda azul" loading="lazy"></a><figcaption>Menú principal</figcaption></figure>
+      <figure><a class="shot" href="media/training.png"><img src="media/training.png" width="1280" height="720" alt="El panel del Castillo con la cola de entrenamiento y el punto de reunión" loading="lazy"></a><figcaption>Cola de entrenamiento del Castillo</figcaption></figure>
+      <figure><a class="shot" href="media/editor.png"><img src="media/editor.png" width="1280" height="720" alt="El editor de mapas con su barra de piezas y de herramientas" loading="lazy"></a><figcaption>El editor de mapas</figcaption></figure>
+      <figure><a class="shot" href="media/victory.png"><img src="media/victory.png" width="1280" height="720" alt="El panel de victoria al caer el Castillo enemigo" loading="lazy"></a><figcaption>Victoria</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sheet" id="built">
     <h2>Cómo está hecho</h2>
-    <p>El juego son dos mitades que nunca se mezclan. La simulación es C# puro, sin nodos de Godot ni delta de
-      frame, que avanza a paso fijo, se prueba con xUnit sin abrir el motor y se serializa a JSON para guardar. La
-      capa de Godot dibuja ese estado y aloja una interfaz que nunca toca una entidad: solo encola órdenes, igual que
-      la IA.</p>
-    <p>Esa separación es lo que hace posible el resto. La batería de tests juega partidas enteras: diez minutos de IA
-      contra IA en el Valle y quince con cuatro IAs en La Encrucijada corren sin ventana en unos treinta segundos, y
-      comprueban cosas como "nadie es eliminado antes del minuto diez" o "ninguna IA se queda ociosa un minuto". Un
-      arnés de línea de comandos maneja el motor real con entrada sintética y órdenes con guion, saca capturas y mide
-      el tiempo por frame, así que cualquier cambio se verifica sin ratón.</p>
+    <p>El juego son dos mitades que nunca se mezclan. La simulación es C# puro, sin nodos de Godot ni delta de frame, que avanza a paso fijo, se prueba con xUnit sin abrir el motor y se serializa a JSON para guardar. La capa de Godot dibuja ese estado y aloja una interfaz que nunca toca una entidad: solo encola órdenes, igual que la IA.</p>
+    <p>Esa separación es lo que hace posible el resto. La batería de tests juega partidas enteras: diez minutos de IA contra IA en el Valle y quince con cuatro IAs en La Encrucijada corren sin ventana en unos treinta segundos, y comprueban cosas como "nadie es eliminado antes del minuto diez" o "ninguna IA se queda ociosa un minuto". Un arnés de línea de comandos maneja el motor real con entrada sintética y órdenes con guion, saca capturas y mide el tiempo por frame, así que cualquier cambio se verifica sin ratón.</p>
     <table class="facts">
       <tr><th scope="row">Motor</th><td>Godot 4.6.2 .NET, C# 12 sobre .NET 8, sin más dependencias</td></tr>
       <tr><th scope="row">Render</th><td>Compatibility (OpenGL 3.3), filtro nearest, ajuste al píxel</td></tr>
-      <tr><th scope="row">Código</th><td>Unas 16.000 líneas de C# en 88 ficheros, más 4.300 de tests</td></tr>
-      <tr><th scope="row">Tests</th><td>181, incluidas partidas simuladas completas</td></tr>
-      <tr><th scope="row">Rendimiento</th><td>4 IAs y 300 unidades a 60 fps con un tick de simulación de 1,3 ms</td></tr>
-      <tr><th scope="row">Contenido</th><td>29 tipos de unidad, 7 edificios, 9 tecnologías, 21 tipos de campamento, 3 mapas</td></tr>
-      <tr><th scope="row">Textos</th><td>519 cadenas traducidas a español e inglés</td></tr>
+      <tr><th scope="row">Código</th><td>Unas <b data-count="16000">0</b> líneas de C# en <b data-count="88">0</b> ficheros, más <b data-count="4300">0</b> de tests</td></tr>
+      <tr><th scope="row">Tests</th><td><b data-count="181">0</b>, incluidas partidas simuladas completas</td></tr>
+      <tr><th scope="row">Rendimiento</th><td>4 IAs y <b data-count="300">0</b> unidades a 60 fps con un tick de simulación de 1,3 ms</td></tr>
+      <tr><th scope="row">Contenido</th><td><b data-count="29">0</b> tipos de unidad, 7 edificios, 9 tecnologías, <b data-count="21">0</b> tipos de campamento, 3 mapas</td></tr>
+      <tr><th scope="row">Textos</th><td><b data-count="519">0</b> cadenas traducidas a español e inglés</td></tr>
     </table>
-    <p>El terreno y las capas estáticas son comandos de dibujo retenidos, no nodos; solo lo que se anima es un
-      sprite; los anillos de selección, la espuma y las sombras son nodos únicos que se redibujan cuando algo cambia.
-      La escena entera se queda en torno a una docena de draw calls con cientos de unidades en pantalla.</p>
-    <p>El proyecto se ha hecho con Claude Code programando y conmigo dirigiendo el diseño, jugando cada build y
-      decidiendo qué entra y qué se descarta. El repositorio con el código es privado; esta web y su repositorio son
-      la presentación pública.</p>
+    <p>El terreno y las capas estáticas son comandos de dibujo retenidos, no nodos; solo lo que se anima es un sprite; los anillos de selección, la espuma y las sombras son nodos únicos que se redibujan cuando algo cambia. La escena entera se queda en torno a una docena de draw calls con cientos de unidades en pantalla.</p>
+    <p>El proyecto se ha hecho con Claude Code programando y conmigo dirigiendo el diseño, jugando cada build y decidiendo qué entra y qué se descarta. El repositorio con el código es privado; esta web y su repositorio son la presentación pública.</p>
   </section>
 
-  <section class="sheet">
+  <section class="sheet" id="status">
     <h2>Estado</h2>
-    <p>Jugable de principio a fin: economía, construcción, entrenamiento, combate, tecnología, IA para dos y cuatro
-      jugadores, campamentos neutrales, guardado, audio, editor y dos idiomas. El desarrollo empezó el 8 de
-      septiembre de 2026. La hoja de ruta apunta a Steam, y por eso las estadísticas de partida ya viven en la
-      simulación y cada guardado es un fichero por ranura.</p>
+    <p>Jugable de principio a fin: economía, construcción, entrenamiento, combate, tecnología, IA para dos y cuatro jugadores, campamentos neutrales, guardado, audio, editor y dos idiomas. El desarrollo empezó el 8 de septiembre de 2026. La hoja de ruta apunta a Steam, y por eso las estadísticas de partida ya viven en la simulación y cada guardado es un fichero por ranura.</p>
   </section>
 
-  <section class="sheet credits">
+  <section class="sheet credits" id="credits">
     <h2>Créditos</h2>
     <ul>
       <li>Arte: <a href="https://pixelfrog-assets.itch.io/tiny-swords">Tiny Swords</a> y su Enemy Pack, de Pixel Frog, usados bajo su licencia. Los packs no se redistribuyen aquí.</li>
@@ -152,5 +159,22 @@
   Capturas, vídeo y textos © 2026 9n-dev. <a href="https://github.com/9n-dev/TinyRTS-showcase">Repositorio en GitHub</a>.
 </footer>
 
+<div class="modal" id="trailer-modal" hidden role="dialog" aria-modal="true" aria-label="Tráiler de TinyRTS"
+     data-sources="media/trailer-es-720p.webm, media/trailer-es-720p.mp4" data-poster="media/trailer-poster.jpg">
+  <div class="modal-box">
+    <button class="modal-close" type="button" aria-label="Cerrar">×</button>
+    <div class="modal-video"></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true">
+  <button class="lightbox-close" type="button" aria-label="Cerrar">×</button>
+  <button class="lightbox-prev" type="button" aria-label="Anterior">‹</button>
+  <figure><img src="" alt=""><figcaption><span class="lightbox-caption"></span> <span class="lightbox-count"></span></figcaption></figure>
+  <button class="lightbox-next" type="button" aria-label="Siguiente">›</button>
+</div>
+
+<script>window.SITE_TEXT = {"gold": "Veta de oro", "goldAmount": "{n} de oro", "forest": "Árbol", "water": "Agua", "grass": "Hierba", "plateau": "Meseta", "cliff": "Acantilado", "stairs": "Escalera", "campGeneric": "Campamento", "campDetail": "Campamento neutral con guardianes y recompensa", "tierLabel": "Dificultad: {t}", "tiers": {"easy": "fácil", "medium": "media", "hard": "difícil"}, "neutrals": {"market": "Mercado goblin", "mercenaries": "Campamento de mercenarios", "tavern": "Taberna"}, "neutralDetail": "Edificio neutral para quien llegue primero", "start": "Salida {n}", "startDetail": "Castillo y tres Peones", "mapInfo": "{w}×{h} casillas, {p} jugadores, {c} campamentos", "loading": "Cargando…", "loadError": "No se han podido cargar los datos del mapa.", "camps": {"BatCave": "Cueva de murciélagos", "Bear": "Cueva del oso", "CoastBattery": "Batería costera", "Fumarole": "Fumarola", "GnollCamp": "Campamento gnoll", "Gnome": "Aldea gnoma", "GnomeVillage": "Aldea gnoma", "Goblin": "Campamento goblin", "GoblinVillage": "Poblado goblin", "Graveyard": "Cementerio", "Hive": "Colmena", "Lighthouse": "Faro pirata", "MinotaurLair": "Guarida del minotauro", "PandaGrove": "Bosquecillo de pandas", "Pigsty": "Cochiquera goblin", "PirateCove": "Cala pirata", "SpiderNest": "Nido de arañas", "Swamp": "Ciénaga", "ThiefHideout": "Escondrijo de ladrones", "Troll": "Guarida del troll", "TurtleBeach": "Playa de tortugas"}, "mapDesc": {"valley": "Dos jugadores frente a frente en un valle con río: 27 campamentos, una cala pirata en la costa noreste y aldeas gnomas y goblins cerradas por bosque.", "crossroads": "Cuatro jugadores con simetría rotacional de 90°: cada base tiene su expansión natural, dos rutas hacia las vecinas, 33 campamentos y una taberna en el centro.", "cuatro-vientos": "Hecho con el editor del juego: una meseta con escalera al norte de cada base y campamentos entre medias. Sus estacas enseñan el radio de campamento que usa el editor."}};</script>
+<script src="site.js" defer></script>
 </body>
 </html>

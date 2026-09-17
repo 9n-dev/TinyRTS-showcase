@@ -8,7 +8,7 @@ y un editor de mapas dentro del propio juego. Un Warcraft 3 en pequeño con la e
 
 Hecho desde cero en **Godot 4.6 .NET y C#**, con el arte del pack *Tiny Swords* de Pixel Frog.
 
-**[Web con el tráiler](https://9n-dev.github.io/TinyRTS-showcase/es.html)** · [Tráiler de 55 s (mp4)](https://github.com/9n-dev/TinyRTS-showcase/releases/latest)
+**[Web con el tráiler](https://9n-dev.github.io/TinyRTS-showcase/es.html)** · [Tráiler de 52 s (mp4)](https://github.com/9n-dev/TinyRTS-showcase/releases/latest)
 
 ![Una aldea viva: Peones talando y picando oro, levantando una casa y una torre, tropa entrenándose](media/hero.gif)
 
@@ -31,8 +31,8 @@ Gana el último jugador con un Castillo en pie.
 | --- | --- |
 | ![Ejércitos azul y rojo chocando bajo las torres rojas](media/battle.gif) | ![Limpiando una aldea goblin defendida por goblins con lanza y antorcha](media/camps.gif) |
 | Una batalla entre jugadores | Limpiando un campamento neutral |
-| ![Pintando un bosque, un campamento y una torre en el editor, y jugando el mapa](media/editor.gif) | ![Arqueros en la orilla disparando al tiburón arponero y al pez bomba de una cala pirata](media/cove.gif) |
-| El editor de mapas | La cala pirata |
+| ![Pintando un bosque, un campamento y una torre en el editor, y jugando el mapa](media/editor.gif) | ![Guerreros y arqueros limpiando un nido de arañas junto a una charca](media/spiders.gif) |
+| El editor de mapas | Un nido de arañas |
 
 ## Características
 
@@ -66,7 +66,7 @@ Gana el último jugador con un Castillo en pie.
 | | |
 | --- | --- |
 | ![Una aldea grande con casas, monasterio, cuartel y torres](media/village.png) | ![Ejércitos azul y rojo peleando junto a una torre y un Castillo rojos](media/battle.png) |
-| ![Arqueros en la orilla disparando a un tiburón arponero y un pez bomba](media/cove.png) | ![Guerreros y arqueros peleando con arañas junto a una charca](media/spiders.png) |
+| ![Guerreros y arqueros peleando con arañas junto a una charca](media/spiders.png) | ![Un corral sobre una meseta por encima del bosque](media/plateau.png) |
 | ![Una aldea goblin con un troll, cerrada por bosque con una sola entrada](media/goblin-village.png) | ![Una meseta con una escalera lateral tallada en el acantilado](media/stairs.png) |
 | ![Menú principal sobre un panel de pergamino con banda azul](media/menu.png) | ![El panel del Castillo con la cola de entrenamiento y el punto de reunión](media/training.png) |
 | ![El editor de mapas con su barra de piezas y de herramientas](media/editor.png) | ![El panel de victoria al caer el Castillo enemigo](media/victory.png) |

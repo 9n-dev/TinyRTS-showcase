@@ -8,7 +8,7 @@ game. Think a small Warcraft 3 with the expansion economy of Northgard.
 
 Built from scratch in **Godot 4.6 .NET and C#**, with the *Tiny Swords* art pack by Pixel Frog.
 
-**[Website with the trailer](https://9n-dev.github.io/TinyRTS-showcase/)** · [Trailer, 55 s (mp4)](https://github.com/9n-dev/TinyRTS-showcase/releases/latest)
+**[Website with the trailer](https://9n-dev.github.io/TinyRTS-showcase/)** · [Trailer, 52 s (mp4)](https://github.com/9n-dev/TinyRTS-showcase/releases/latest)
 
 ![A living village: Pawns gathering wood and gold, building a house and a tower, troops training](media/hero.gif)
 
@@ -30,8 +30,8 @@ The last player with a Castle standing wins.
 | --- | --- |
 | ![Blue and red armies clashing under the red towers](media/battle.gif) | ![Clearing a goblin village guarded by spear and torch goblins](media/camps.gif) |
 | A battle between players | Clearing a neutral camp |
-| ![Painting a forest, a camp and a tower in the editor, then playing the map](media/editor.gif) | ![Archers on the shore shooting at the harpoon shark and the bomb fish of a pirate cove](media/cove.gif) |
-| The map editor | The pirate cove |
+| ![Painting a forest, a camp and a tower in the editor, then playing the map](media/editor.gif) | ![Warriors and archers clearing a spider nest beside a pond](media/spiders.gif) |
+| The map editor | A spider nest |
 
 ## Features
 
@@ -63,7 +63,7 @@ The last player with a Castle standing wins.
 | | |
 | --- | --- |
 | ![A large village with houses, a monastery, a barracks and towers](media/village.png) | ![Blue and red armies fighting beside a red tower and Castle](media/battle.png) |
-| ![Archers on the shore shooting at a harpoon shark and a bomb fish](media/cove.png) | ![Warriors and archers fighting spiders beside a pond](media/spiders.png) |
+| ![Warriors and archers fighting spiders beside a pond](media/spiders.png) | ![A sheep pen on a plateau above the forest](media/plateau.png) |
 | ![A goblin village with a troll, closed by forest with a single entrance](media/goblin-village.png) | ![A plateau with a side stair cut into its cliff](media/stairs.png) |
 | ![Main menu on a parchment panel with a blue banner](media/menu.png) | ![The Castle panel with the training queue and rally point](media/training.png) |
 | ![The map editor with its piece bar and tool bar](media/editor.png) | ![The victory panel after the enemy Castle falls](media/victory.png) |
