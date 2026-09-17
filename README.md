@@ -8,9 +8,9 @@ game. Think a small Warcraft 3 with the expansion economy of Northgard.
 
 Built from scratch in **Godot 4.6 .NET and C#**, with the *Tiny Swords* art pack by Pixel Frog.
 
-**[Website with the trailer](https://9n-dev.github.io/TinyRTS-showcase/)** · [Trailer, 30 s (mp4)](https://github.com/9n-dev/TinyRTS-showcase/releases/latest)
+**[Website with the trailer](https://9n-dev.github.io/TinyRTS-showcase/)** · [Trailer, 55 s (mp4)](https://github.com/9n-dev/TinyRTS-showcase/releases/latest)
 
-![A battle at the edge of a forest: blue warriors and archers against red ones, with goblin huts in the background](media/hero.gif)
+![A living village: Pawns gathering wood and gold, building a house and a tower, troops training](media/hero.gif)
 
 ## What you do in a game
 
@@ -28,10 +28,10 @@ The last player with a Castle standing wins.
 
 | | |
 | --- | --- |
-| ![Building a base: Pawns raising a Barracks next to the Castle](media/build.gif) | ![Defending the Castle from a red attack wave](media/battle.gif) |
-| Building | Defending |
-| ![Painting a map in the editor and testing it in place](media/editor.gif) | ![A goblin village with a troll, closed by forest with a single entrance](media/goblin-village.png) |
-| The map editor | A neutral goblin village |
+| ![Blue and red armies clashing under the red towers](media/battle.gif) | ![Clearing a goblin village guarded by spear and torch goblins](media/camps.gif) |
+| A battle between players | Clearing a neutral camp |
+| ![Painting a forest, a camp and a tower in the editor, then playing the map](media/editor.gif) | ![Archers on the shore shooting at the harpoon shark and the bomb fish of a pirate cove](media/cove.gif) |
+| The map editor | The pirate cove |
 
 ## Features
 
@@ -62,10 +62,11 @@ The last player with a Castle standing wins.
 
 | | |
 | --- | --- |
+| ![A large village with houses, a monastery, a barracks and towers](media/village.png) | ![Blue and red armies fighting beside a red tower and Castle](media/battle.png) |
+| ![Archers on the shore shooting at a harpoon shark and a bomb fish](media/cove.png) | ![Warriors and archers fighting spiders beside a pond](media/spiders.png) |
+| ![A goblin village with a troll, closed by forest with a single entrance](media/goblin-village.png) | ![A plateau with a side stair cut into its cliff](media/stairs.png) |
 | ![Main menu on a parchment panel with a blue banner](media/menu.png) | ![The Castle panel with the training queue and rally point](media/training.png) |
-| ![A plateau with a side stair cut into its cliff](media/stairs.png) | ![A sheep pen on a plateau above the forest](media/plateau.png) |
-| ![A blue army holding the line beside the Castle](media/defend.png) | ![The map editor with its piece bar and tool bar](media/editor.png) |
-| ![The victory panel after the enemy Castle falls](media/victory.png) | ![A large battle with the resource bar visible](media/combat-hud.png) |
+| ![The map editor with its piece bar and tool bar](media/editor.png) | ![The victory panel after the enemy Castle falls](media/victory.png) |
 
 ## How it is built
 

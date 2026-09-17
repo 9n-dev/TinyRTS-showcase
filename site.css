@@ -148,7 +148,7 @@ img, video { max-width: 100%; height: auto; display: block; }
   margin: 26px 0 8px;
 }
 .pair figure, .gallery figure { margin: 0; }
-.pair img, .gallery img {
+.pair video, .pair img, .gallery img {
   border: 2px solid var(--wood);
   border-radius: 4px;
   image-rendering: auto;
