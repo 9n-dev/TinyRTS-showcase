@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="darkreader-lock">
+  <title>TinyRTS</title>
+  <meta name="description" content="TinyRTS is a pixel-art real-time strategy game for Linux and Windows, built in Godot 4 and C#: neutral camps, elevation, fog of war, AI opponents and a built-in map editor.">
+  <meta property="og:title" content="TinyRTS">
+  <meta property="og:description" content="A small pixel-art real-time strategy game built in Godot 4 and C#.">
+  <meta property="og:image" content="https://9n-dev.github.io/TinyRTS-showcase/media/trailer-poster.jpg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<nav class="top"><a href="es.html" lang="es" hreflang="es">Versión en español</a></nav>
+
+<header class="hero">
+  <h1 class="banner">TinyRTS</h1>
+  <p class="tagline">A small real-time strategy game, built from scratch in Godot 4 and C#.</p>
+  <div class="frame">
+    <video controls playsinline preload="metadata" poster="media/trailer-poster.jpg">
+      <source src="media/trailer-720p.mp4" type="video/mp4">
+      The trailer is a 30 second mp4. <a href="media/trailer-720p.mp4">Open the video file.</a>
+    </video>
+  </div>
+  <p class="links">
+    Trailer, 30 seconds. Full quality in the <a href="https://github.com/9n-dev/TinyRTS-showcase/releases/latest">release on GitHub</a>.
+    <a href="https://github.com/9n-dev/TinyRTS-showcase">Repository</a>.
+  </p>
+</header>
+
+<main>
+  <section class="sheet">
+    <h2>What you do in a game</h2>
+    <p>You start with a Castle, three Pawns and a handful of resources. Pawns cut trees, mine gold and carry every
+      load back to the Castle by hand. Trees leave stumps and gold veins run dry, so sooner or later you build a
+      second Castle on the next patch of resources. Sheep pens feed you passively; Houses raise the population
+      cap; the Barracks, Archery and Monastery train Warriors, Archers, Lancers and Monks; nine technologies in
+      three branches make everything sharper.</p>
+    <p>The map is shared with neutral camps: goblins, trolls, spider nests, thief hideouts, pirate coves in the
+      water. Each one has guardians, a fixed post they defend, regeneration if you leave them alone, and a reward
+      when you clear them. Neutral markets, mercenaries and taverns sit in the middle of the map for whoever gets
+      there first. The last player with a Castle standing wins.</p>
+    <div class="pair">
+      <figure><img src="media/build.gif" width="720" height="405" alt="Building a base: Pawns raising a Barracks next to the Castle" loading="lazy"><figcaption>Building</figcaption></figure>
+      <figure><img src="media/battle.gif" width="720" height="405" alt="Defending the Castle from a red attack wave" loading="lazy"><figcaption>Defending</figcaption></figure>
+      <figure><img src="media/editor.gif" width="720" height="405" alt="Painting a map in the editor and testing it in place" loading="lazy"><figcaption>The map editor</figcaption></figure>
+      <figure><img src="media/goblin-village.png" width="1280" height="720" alt="A goblin village with a troll, closed by forest with a single entrance" loading="lazy"><figcaption>A neutral goblin village</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Real-time simulation</strong> at a fixed 20 Hz step, rendered at 60 fps with interpolation between ticks.</li>
+      <li><strong>Free movement in pixels.</strong> A* on the 64 px grid without corner cutting, path smoothing and local
+        separation via a spatial hash. Units never block cells; buildings, resources and terrain do. 200 units cross the map at 60 fps.</li>
+      <li><strong>An economy of trips.</strong> Finite trees and gold veins, Pawns that gather, load up and deliver, passive
+        food from sheep pens, expansion with a second Castle. Neutral market, mercenaries and tavern.</li>
+      <li><strong>Elevation that matters.</strong> Plateaus and cliffs joined only by one-tile side stairs. Ranged units and
+        towers gain range and vision from above; melee never crosses an edge.</li>
+      <li><strong>21 kinds of neutral camp</strong> with 24 creatures from the Enemy Pack, including static water guardians
+        like the harpoon shark and the bomb fish. The four-player map has 33 camps.</li>
+      <li><strong>AI opponents</strong> for two to four players that expand, trade at the market, build towers on the way to
+        the enemy and pick wave targets by path length or weakness. Tuned by playing hundreds of simulated games, because
+        the simulation has no randomness and a single game is a chaotic sample rather than a measure.</li>
+      <li><strong>Fog of war</strong> with three states, a minimap with alerts, and Warcraft 3 controls: box select,
+        contextual right click, attack-move, stop and hold, control groups, edge and WASD scrolling. Every key can be rebound.</li>
+      <li><strong>Map editor</strong> in the Mario Maker spirit. Paint terrain, resources, camps and start positions over
+        the real world, press P to play the map in under a tenth of a second, Esc to keep editing. Brush, rectangle, fill
+        and selection tools, copy and paste, rotate and mirror, and a validator that warns about unreachable bases,
+        guarded resources or missing building room.</li>
+      <li><strong>Three official maps.</strong> The Valley (96×64, two players), the Crossroads (160×160, four players,
+        rotational symmetry) and Four Winds, made with the editor. The first two come from Python generators that
+        validate symmetry, connectivity, choke widths and travel distances between bases.</li>
+      <li>Save slots with autosave, Spanish and English, 59 sound effects, music and ambience.</li>
+    </ul>
+  </section>
+
+  <section class="sheet">
+    <h2>Screenshots</h2>
+    <div class="gallery">
+      <figure><img src="media/battle.png" width="1280" height="720" alt="A battle at the edge of a forest: blue warriors and archers against red ones" loading="lazy"><figcaption>A fight at the goblin huts</figcaption></figure>
+      <figure><img src="media/defend.png" width="1280" height="720" alt="A blue army holding the line beside the Castle" loading="lazy"><figcaption>Holding the line by the Castle</figcaption></figure>
+      <figure><img src="media/stairs.png" width="1280" height="720" alt="A plateau with a side stair cut into its cliff" loading="lazy"><figcaption>A plateau and its side stair</figcaption></figure>
+      <figure><img src="media/plateau.png" width="1280" height="720" alt="A sheep pen on a plateau above the forest" loading="lazy"><figcaption>A sheep pen on high ground</figcaption></figure>
+      <figure><img src="media/menu.png" width="1280" height="720" alt="Main menu on a parchment panel with a blue banner" loading="lazy"><figcaption>Main menu</figcaption></figure>
+      <figure><img src="media/training.png" width="1280" height="720" alt="The Castle panel with the training queue and rally point" loading="lazy"><figcaption>Training queue at the Castle</figcaption></figure>
+      <figure><img src="media/editor.png" width="1280" height="720" alt="The map editor with its piece bar and tool bar" loading="lazy"><figcaption>The map editor</figcaption></figure>
+      <figure><img src="media/victory.png" width="1280" height="720" alt="The victory panel after the enemy Castle falls" loading="lazy"><figcaption>Victory</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <h2>How it is built</h2>
+    <p>The game is two halves that never mix. The simulation is plain C# with no Godot nodes and no frame delta,
+      advanced at a fixed rate, tested with xUnit without opening the engine and serialized to JSON for saving. The
+      Godot layer draws that state and hosts an interface that never touches an entity: it only enqueues commands,
+      and so does the AI.</p>
+    <p>That split is what makes the rest possible. The test suite plays whole games: ten minutes of AI against AI on
+      the Valley and fifteen minutes with four AIs on the Crossroads run headless in about thirty seconds, and they
+      assert things like "nobody is eliminated before minute ten" and "no AI sits idle for a minute". A command-line
+      harness drives the real engine with synthetic input and scripted orders, takes screenshots and measures frame
+      time, so a change can be verified without a mouse.</p>
+    <table class="facts">
+      <tr><th scope="row">Engine</th><td>Godot 4.6.2 .NET, C# 12 on .NET 8, no other dependencies</td></tr>
+      <tr><th scope="row">Renderer</th><td>Compatibility (OpenGL 3.3), nearest filtering, pixel snapping</td></tr>
+      <tr><th scope="row">Code</th><td>About 16,000 lines of C# in 88 files, plus 4,300 lines of tests</td></tr>
+      <tr><th scope="row">Tests</th><td>181, including full simulated games</td></tr>
+      <tr><th scope="row">Performance</th><td>4 AIs and 300 units at 60 fps with a 1.3 ms simulation tick</td></tr>
+      <tr><th scope="row">Content</th><td>29 unit types, 7 buildings, 9 technologies, 21 camp kinds, 3 maps</td></tr>
+      <tr><th scope="row">Text</th><td>519 localized strings in Spanish and English</td></tr>
+    </table>
+    <p>Terrain and static layers are retained draw commands, not nodes; sprites exist only for what animates;
+      selection rings, foam and shadows are single nodes that redraw when something changes. The whole scene stays
+      around a dozen draw calls with hundreds of units on screen.</p>
+    <p>The project was built with Claude Code doing the programming and me leading the design, playing every build
+      and deciding what goes in and what gets cut. The source repository is private; this site and its repository are
+      the public presentation.</p>
+  </section>
+
+  <section class="sheet">
+    <h2>Status</h2>
+    <p>Playable from start to finish: economy, building, training, combat, technology, AI for two and four players,
+      neutral camps, saving, audio, editor, two languages. Development started on 8 September 2026. The roadmap
+      points at a Steam release, which is why game statistics already live in the simulation and saves are one file
+      per slot.</p>
+  </section>
+
+  <section class="sheet credits">
+    <h2>Credits</h2>
+    <ul>
+      <li>Art: <a href="https://pixelfrog-assets.itch.io/tiny-swords">Tiny Swords</a> and its Enemy Pack by Pixel Frog, used under their license. The packs are not redistributed here.</li>
+      <li>Font: Caladea by Huerta Tipográfica, SIL Open Font License.</li>
+      <li>Sounds: Pixabay.</li>
+      <li>Engine: Godot Engine.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  Screenshots, video and text © 2026 9n-dev. <a href="https://github.com/9n-dev/TinyRTS-showcase">Repository on GitHub</a>.
+</footer>
+
+</body>
+</html>

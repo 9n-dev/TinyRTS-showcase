@@ -1,0 +1,18 @@
+TinyRTS showcase
+Copyright (c) 2026 9n-dev
+
+The text, screenshots, animations and video in this repository are provided for viewing
+and for linking to this repository. They may be quoted or reproduced with attribution
+to the author and a link back to this repository. All other rights are reserved.
+
+The game itself, its source code and its data are not included here and are not
+licensed by this file.
+
+Third-party material visible in the screenshots and video:
+
+- Tiny Swords and Tiny Swords Enemy Pack, by Pixel Frog (https://pixelfrog-assets.itch.io/tiny-swords),
+  used in the game under the license of those packs. The packs are not redistributed
+  in this repository.
+- Caladea, by Huerta Tipografica, SIL Open Font License 1.1.
+- Sound effects and music from Pixabay, under the Pixabay Content License.
+- Godot Engine, MIT License.

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="darkreader-lock">
+  <title>TinyRTS</title>
+  <meta name="description" content="TinyRTS es un juego de estrategia en tiempo real en pixel art para Linux y Windows, hecho en Godot 4 y C#: campamentos neutrales, altura, niebla de guerra, IA rival y editor de mapas integrado.">
+  <meta property="og:title" content="TinyRTS">
+  <meta property="og:description" content="Un pequeño juego de estrategia en tiempo real en pixel art, hecho en Godot 4 y C#.">
+  <meta property="og:image" content="https://9n-dev.github.io/TinyRTS-showcase/media/trailer-poster.jpg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<nav class="top"><a href="index.html" lang="en" hreflang="en">English version</a></nav>
+
+<header class="hero">
+  <h1 class="banner">TinyRTS</h1>
+  <p class="tagline">Un pequeño juego de estrategia en tiempo real, hecho desde cero en Godot 4 y C#.</p>
+  <div class="frame">
+    <video controls playsinline preload="metadata" poster="media/trailer-poster.jpg">
+      <source src="media/trailer-720p.mp4" type="video/mp4">
+      El tráiler es un mp4 de 30 segundos. <a href="media/trailer-720p.mp4">Abrir el vídeo.</a>
+    </video>
+  </div>
+  <p class="links">
+    Tráiler de 30 segundos. A calidad completa en la <a href="https://github.com/9n-dev/TinyRTS-showcase/releases/latest">release de GitHub</a>.
+    <a href="https://github.com/9n-dev/TinyRTS-showcase">Repositorio</a>.
+  </p>
+</header>
+
+<main>
+  <section class="sheet">
+    <h2>Qué se hace en una partida</h2>
+    <p>Empiezas con un Castillo, tres Peones y unos pocos recursos. Los Peones talan, pican oro y llevan cada carga
+      al Castillo a mano. Los árboles dejan tocón y las vetas se agotan, así que antes o después levantas un segundo
+      Castillo sobre el siguiente grupo de recursos. Los corrales dan comida sin trabajo; las Casas suben la
+      población; el Cuartel, la Arquería y el Monasterio entrenan Guerreros, Arqueros, Lanceros y Monjes; nueve
+      tecnologías en tres ramas lo afilan todo.</p>
+    <p>El mapa se comparte con campamentos neutrales: goblins, trolls, nidos de arañas, guaridas de ladrones, calas
+      piratas en el agua. Cada uno tiene guardianes, un puesto fijo que defienden, regeneración si los dejas en paz y
+      una recompensa al limpiarlo. Mercados, mercenarios y tabernas neutrales esperan en el centro del mapa a quien
+      llegue primero. Gana el último jugador con un Castillo en pie.</p>
+    <div class="pair">
+      <figure><img src="media/build.gif" width="720" height="405" alt="Construyendo la base: Peones levantando un Cuartel junto al Castillo" loading="lazy"><figcaption>Construir</figcaption></figure>
+      <figure><img src="media/battle.gif" width="720" height="405" alt="Defendiendo el Castillo de una oleada roja" loading="lazy"><figcaption>Defender</figcaption></figure>
+      <figure><img src="media/editor.gif" width="720" height="405" alt="Pintando un mapa en el editor y probándolo en el sitio" loading="lazy"><figcaption>El editor de mapas</figcaption></figure>
+      <figure><img src="media/goblin-village.png" width="1280" height="720" alt="Una aldea goblin con un troll, cerrada por bosque con una sola entrada" loading="lazy"><figcaption>Una aldea goblin neutral</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <h2>Características</h2>
+    <ul>
+      <li><strong>Simulación en tiempo real</strong> a paso fijo de 20 Hz, dibujada a 60 fps interpolando entre ticks.</li>
+      <li><strong>Movimiento libre en píxeles.</strong> A* sobre la cuadrícula de 64 px sin cortar esquinas, suavizado del
+        camino y separación local por hash espacial. Las unidades nunca bloquean casillas; edificios, recursos y terreno sí.
+        200 unidades cruzan el mapa a 60 fps.</li>
+      <li><strong>Una economía de viajes.</strong> Árboles y vetas finitos, Peones que recolectan, se cargan y entregan,
+        comida pasiva de los corrales y expansión con un segundo Castillo. Mercado, mercenarios y taberna neutrales.</li>
+      <li><strong>Altura que cuenta.</strong> Mesetas y acantilados unidos solo por escaleras laterales de una casilla. Las
+        unidades a distancia y las torres ganan alcance y visión desde arriba; el cuerpo a cuerpo nunca cruza un borde.</li>
+      <li><strong>21 tipos de campamento neutral</strong> con 24 criaturas del Enemy Pack, incluidos guardianes estáticos de
+        agua como el tiburón arponero y el pez bomba. El mapa de cuatro jugadores tiene 33 campamentos.</li>
+      <li><strong>IA rival</strong> para dos a cuatro jugadores que se expande, comercia en el mercado, levanta torres camino
+        del enemigo y elige el objetivo de cada oleada por distancia o debilidad. Ajustada jugando cientos de partidas
+        simuladas, porque la simulación no tiene azar y una sola partida es una muestra caótica, no una medida.</li>
+      <li><strong>Niebla de guerra</strong> de tres estados, minimapa con avisos y controles de Warcraft 3: recuadro, click
+        derecho contextual, atacar en movimiento, parar y mantener, grupos de control, bordes y WASD. Todas las teclas se
+        pueden reasignar.</li>
+      <li><strong>Editor de mapas</strong> al estilo Mario Maker. Se pinta terreno, recursos, campamentos y posiciones de
+        salida sobre el mundo real, P prueba el mapa en menos de una décima de segundo y Esc devuelve al editor. Pincel,
+        rectángulo, cubo y selección, copiar y pegar, girar y espejar, y un comprobador que avisa de bases inaccesibles,
+        recursos vigilados o falta de sitio para construir.</li>
+      <li><strong>Tres mapas oficiales.</strong> El Valle (96×64, dos jugadores), La Encrucijada (160×160, cuatro jugadores,
+        simetría rotacional) y Cuatro vientos, hecho con el editor. Los dos primeros salen de generadores en Python que
+        validan simetría, conectividad, anchura de los cuellos y distancias entre bases.</li>
+      <li>Ranuras de guardado con autoguardado, español e inglés, 59 sonidos, música y ambiente.</li>
+    </ul>
+  </section>
+
+  <section class="sheet">
+    <h2>Capturas</h2>
+    <div class="gallery">
+      <figure><img src="media/battle.png" width="1280" height="720" alt="Una batalla al borde de un bosque: guerreros y arqueros azules contra rojos" loading="lazy"><figcaption>Pelea junto a las chozas goblin</figcaption></figure>
+      <figure><img src="media/defend.png" width="1280" height="720" alt="Un ejército azul aguantando la línea junto al Castillo" loading="lazy"><figcaption>Aguantando la línea junto al Castillo</figcaption></figure>
+      <figure><img src="media/stairs.png" width="1280" height="720" alt="Una meseta con una escalera lateral tallada en el acantilado" loading="lazy"><figcaption>Una meseta y su escalera lateral</figcaption></figure>
+      <figure><img src="media/plateau.png" width="1280" height="720" alt="Un corral sobre una meseta por encima del bosque" loading="lazy"><figcaption>Un corral en alto</figcaption></figure>
+      <figure><img src="media/menu.png" width="1280" height="720" alt="Menú principal sobre un panel de pergamino con banda azul" loading="lazy"><figcaption>Menú principal</figcaption></figure>
+      <figure><img src="media/training.png" width="1280" height="720" alt="El panel del Castillo con la cola de entrenamiento y el punto de reunión" loading="lazy"><figcaption>Cola de entrenamiento del Castillo</figcaption></figure>
+      <figure><img src="media/editor.png" width="1280" height="720" alt="El editor de mapas con su barra de piezas y de herramientas" loading="lazy"><figcaption>El editor de mapas</figcaption></figure>
+      <figure><img src="media/victory.png" width="1280" height="720" alt="El panel de victoria al caer el Castillo enemigo" loading="lazy"><figcaption>Victoria</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <h2>Cómo está hecho</h2>
+    <p>El juego son dos mitades que nunca se mezclan. La simulación es C# puro, sin nodos de Godot ni delta de
+      frame, que avanza a paso fijo, se prueba con xUnit sin abrir el motor y se serializa a JSON para guardar. La
+      capa de Godot dibuja ese estado y aloja una interfaz que nunca toca una entidad: solo encola órdenes, igual que
+      la IA.</p>
+    <p>Esa separación es lo que hace posible el resto. La batería de tests juega partidas enteras: diez minutos de IA
+      contra IA en el Valle y quince con cuatro IAs en La Encrucijada corren sin ventana en unos treinta segundos, y
+      comprueban cosas como "nadie es eliminado antes del minuto diez" o "ninguna IA se queda ociosa un minuto". Un
+      arnés de línea de comandos maneja el motor real con entrada sintética y órdenes con guion, saca capturas y mide
+      el tiempo por frame, así que cualquier cambio se verifica sin ratón.</p>
+    <table class="facts">
+      <tr><th scope="row">Motor</th><td>Godot 4.6.2 .NET, C# 12 sobre .NET 8, sin más dependencias</td></tr>
+      <tr><th scope="row">Render</th><td>Compatibility (OpenGL 3.3), filtro nearest, ajuste al píxel</td></tr>
+      <tr><th scope="row">Código</th><td>Unas 16.000 líneas de C# en 88 ficheros, más 4.300 de tests</td></tr>
+      <tr><th scope="row">Tests</th><td>181, incluidas partidas simuladas completas</td></tr>
+      <tr><th scope="row">Rendimiento</th><td>4 IAs y 300 unidades a 60 fps con un tick de simulación de 1,3 ms</td></tr>
+      <tr><th scope="row">Contenido</th><td>29 tipos de unidad, 7 edificios, 9 tecnologías, 21 tipos de campamento, 3 mapas</td></tr>
+      <tr><th scope="row">Textos</th><td>519 cadenas traducidas a español e inglés</td></tr>
+    </table>
+    <p>El terreno y las capas estáticas son comandos de dibujo retenidos, no nodos; solo lo que se anima es un
+      sprite; los anillos de selección, la espuma y las sombras son nodos únicos que se redibujan cuando algo cambia.
+      La escena entera se queda en torno a una docena de draw calls con cientos de unidades en pantalla.</p>
+    <p>El proyecto se ha hecho con Claude Code programando y conmigo dirigiendo el diseño, jugando cada build y
+      decidiendo qué entra y qué se descarta. El repositorio con el código es privado; esta web y su repositorio son
+      la presentación pública.</p>
+  </section>
+
+  <section class="sheet">
+    <h2>Estado</h2>
+    <p>Jugable de principio a fin: economía, construcción, entrenamiento, combate, tecnología, IA para dos y cuatro
+      jugadores, campamentos neutrales, guardado, audio, editor y dos idiomas. El desarrollo empezó el 8 de
+      septiembre de 2026. La hoja de ruta apunta a Steam, y por eso las estadísticas de partida ya viven en la
+      simulación y cada guardado es un fichero por ranura.</p>
+  </section>
+
+  <section class="sheet credits">
+    <h2>Créditos</h2>
+    <ul>
+      <li>Arte: <a href="https://pixelfrog-assets.itch.io/tiny-swords">Tiny Swords</a> y su Enemy Pack, de Pixel Frog, usados bajo su licencia. Los packs no se redistribuyen aquí.</li>
+      <li>Tipografía: Caladea, de Huerta Tipográfica, SIL Open Font License.</li>
+      <li>Sonidos: Pixabay.</li>
+      <li>Motor: Godot Engine.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  Capturas, vídeo y textos © 2026 9n-dev. <a href="https://github.com/9n-dev/TinyRTS-showcase">Repositorio en GitHub</a>.
+</footer>
+
+</body>
+</html>
