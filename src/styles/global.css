@@ -1,0 +1,60 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --pixel: 'Pixelify Sans', monospace;
+  color: var(--ink);
+  background: #98b552;   /* grass, until the world canvas has painted */
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+body { margin: 0; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+a { color: inherit; text-underline-offset: 5px; }
+img { image-rendering: crisp-edges; image-rendering: pixelated; max-width: 100%; vertical-align: middle; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { font-family: var(--pixel); font-weight: 600; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+a:hover { text-decoration-thickness: 2px; }
+.app { overflow: clip; }
+/* The canvas belongs to the page and scrolls with it on the compositor, so it can never lag behind the panels;
+   WorldCanvas only slides it along (transform) and repaints. Its height is set in pixels by WorldCanvas. */
+.world-canvas { position: absolute; top: 0; left: 0; width: 100%; z-index: -1; image-rendering: pixelated; pointer-events: none; will-change: transform; }
+/* The bottom padding is the shore scene: the map ends in the sea under the footer. */
+.world { position: relative; z-index: 1; isolation: isolate; padding-bottom: 352px; }
+main { position: relative; }
+.skip-link { position: fixed; left: 16px; top: -80px; z-index: 100; background: var(--paper); padding: 16px; }
+.skip-link:focus { top: 16px; }
+.section { position: relative; }
+/* The top margin is where a strip of the world shows at full width (5 tiles plus breathing room). */
+.game, .maps, .gallery, .built { max-width: 1040px; margin: 320px auto 0; padding: 56px 40px 72px; }
+/* No strip above these two: only a breath of forest. */
+.features, .credits { max-width: 1040px; margin: 0 auto; padding: 56px 40px 72px; }
+/* The home scene is 960px tall: on shorter screens the first section waits for it to end. */
+.game { margin-top: calc(392px + max(0px, 960px - 100vh)); }
+.section-heading { text-align: center; margin-bottom: 24px; }
+.site-footer { max-width: 920px; margin: 0 auto; padding: 12px 40px 36px; }
+.footer-frame { padding: 10px 14px; }
+.footer-content { padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.footer-content p { font-size: 13px; line-height: 1.55; margin: 0; }
+.footer-content .attribution { margin-top: 6px; color: var(--ink-muted); }
+.footer-content a { font: 16px/1.4 var(--pixel); white-space: nowrap; padding: 8px 0; }
+@media (max-width: 1100px) {
+  .game, .features, .maps, .gallery, .built, .credits { padding-inline: 32px; }
+}
+@media (max-width: 760px) {
+  .game, .maps, .gallery, .built { margin-top: 190px; }
+  .game, .features, .maps, .gallery, .built, .credits { padding: 36px 16px 48px; }
+  .world { padding-bottom: 176px; }
+  .site-footer { padding: 0 16px 36px; }
+  .footer-content { padding: 20px; align-items: flex-start; flex-direction: column; gap: 8px; }
+}
+@media (max-width: 370px) {
+  .game, .features, .maps, .gallery, .built, .credits { padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
