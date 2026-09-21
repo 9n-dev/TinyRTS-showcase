@@ -76,4 +76,8 @@ for (const width of [390, 1440]) test(`no horizontal scroll at ${width}px`, asyn
   await page.goto('/?lang=es');
   await page.waitForFunction(() => (window as any).__world);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  // .app clips what sticks out, so nothing scrolls sideways even when a ribbon or a button is cut: measure them.
+  const cut = await page.evaluate(() => [...document.querySelectorAll('.ribbon, .pixel-button, .pixel-panel')]
+    .filter(element => { const box = element.getBoundingClientRect(); return box.left < 0 || box.right > innerWidth; }).map(element => element.textContent!.slice(0, 30)));
+  expect(cut).toEqual([]);
 });

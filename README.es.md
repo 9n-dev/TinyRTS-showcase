@@ -8,9 +8,7 @@ y un editor de mapas dentro del propio juego. Un Warcraft 3 en pequeño con la e
 
 Hecho desde cero en **Godot 4.6 .NET y C#**, con el arte del pack *Tiny Swords* de Pixel Frog.
 
-**[Web con el tráiler](https://9n-dev.github.io/TinyRTS-showcase/es.html)** · [Tráiler de 52 s (mp4)](https://github.com/9n-dev/TinyRTS-showcase/releases/latest)
-
-![Una aldea viva: Peones talando y picando oro, levantando una casa y una torre, tropa entrenándose](media/hero.gif)
+![Una aldea viva: Peones talando y picando oro, levantando una casa y una torre, tropa entrenándose](docs/media/hero.gif)
 
 ## Qué se hace en una partida
 
@@ -29,9 +27,9 @@ Gana el último jugador con un Castillo en pie.
 
 | | |
 | --- | --- |
-| ![Ejércitos azul y rojo chocando bajo las torres rojas](media/battle.gif) | ![Limpiando una aldea goblin defendida por goblins con lanza y antorcha](media/camps.gif) |
+| ![Ejércitos azul y rojo chocando bajo las torres rojas](docs/media/battle.gif) | ![Limpiando una aldea goblin defendida por goblins con lanza y antorcha](docs/media/camps.gif) |
 | Una batalla entre jugadores | Limpiando un campamento neutral |
-| ![Pintando un bosque, un campamento y una torre en el editor, y jugando el mapa](media/editor.gif) | ![Guerreros y arqueros limpiando un nido de arañas junto a una charca](media/spiders.gif) |
+| ![Pintando un bosque, un campamento y una torre en el editor, y jugando el mapa](docs/media/editor.gif) | ![Guerreros y arqueros limpiando un nido de arañas junto a una charca](docs/media/spiders.gif) |
 | El editor de mapas | Un nido de arañas |
 
 ## Características
@@ -65,11 +63,11 @@ Gana el último jugador con un Castillo en pie.
 
 | | |
 | --- | --- |
-| ![Una aldea grande con casas, monasterio, cuartel y torres](media/village.png) | ![Ejércitos azul y rojo peleando junto a una torre y un Castillo rojos](media/battle.png) |
-| ![Guerreros y arqueros peleando con arañas junto a una charca](media/spiders.png) | ![Un corral sobre una meseta por encima del bosque](media/plateau.png) |
-| ![Una aldea goblin con un troll, cerrada por bosque con una sola entrada](media/goblin-village.png) | ![Una meseta con una escalera lateral tallada en el acantilado](media/stairs.png) |
-| ![Menú principal sobre un panel de pergamino con banda azul](media/menu.png) | ![El panel del Castillo con la cola de entrenamiento y el punto de reunión](media/training.png) |
-| ![El editor de mapas con su barra de piezas y de herramientas](media/editor.png) | ![El panel de victoria al caer el Castillo enemigo](media/victory.png) |
+| ![Una aldea grande con casas, monasterio, cuartel y torres](public/media/village.png) | ![Ejércitos azul y rojo peleando junto a una torre y un Castillo rojos](public/media/battle.png) |
+| ![Guerreros y arqueros peleando con arañas junto a una charca](public/media/spiders.png) | ![Un corral sobre una meseta por encima del bosque](public/media/plateau.png) |
+| ![Una aldea goblin con un troll, cerrada por bosque con una sola entrada](public/media/goblin-village.png) | ![Una meseta con una escalera lateral tallada en el acantilado](public/media/stairs.png) |
+| ![Menú principal sobre un panel de pergamino con banda azul](public/media/menu.png) | ![El panel del Castillo con la cola de entrenamiento y el punto de reunión](public/media/training.png) |
+| ![El editor de mapas con su barra de piezas y de herramientas](public/media/editor.png) | ![El panel de victoria al caer el Castillo enemigo](public/media/victory.png) |
 
 ## Cómo está hecho
 
@@ -108,11 +106,23 @@ jugadores, campamentos neutrales, guardado, audio, editor y dos idiomas. El desa
 2026. La hoja de ruta apunta a Steam, y por eso las estadísticas de partida ya viven en la simulación y cada guardado
 es un fichero por ranura.
 
+## La web
+
+Este repositorio es la web del juego: React, Vite y TypeScript, con la interfaz de Tiny Swords sobre una aldea viva
+pintada en un canvas (el mismo mundo que mi portfolio). Los textos están en `src/content/`, un fichero por idioma.
+
+```
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # sitio estático en dist/
+npm run test:e2e   # Playwright; la primera vez: npx playwright install chromium
+```
+
 ## Créditos
 
 - Arte: [Tiny Swords](https://pixelfrog-assets.itch.io/tiny-swords) y su Enemy Pack, de Pixel Frog, usados bajo su
-  licencia. Los packs no se redistribuyen aquí.
-- Tipografía: Caladea, de Huerta Tipográfica, SIL Open Font License.
+  licencia. La web usa sprites recortados de los mismos packs.
+- Tipografía: Pixelify Sans, de Stefie Justprince, SIL Open Font License.
 - Sonidos: Pixabay.
 - Motor: Godot Engine.
 

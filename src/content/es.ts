@@ -20,7 +20,8 @@ export const es: Content = {
     note: "52 segundos, con sonido."
   },
   game: {
-    title: "Qué se hace en una partida",
+    title: "El juego",
+    heading: "Qué se hace en una partida",
     paragraphs: [
       "Empiezas con un Castillo, tres Peones y unos pocos recursos. Los Peones talan, pican oro y llevan cada carga al Castillo a mano. Los árboles dejan tocón y las vetas se agotan, así que antes o después levantas un segundo Castillo sobre el siguiente grupo de recursos. Los corrales dan comida sin trabajo; las Casas suben la población; el Cuartel, la Arquería y el Monasterio entrenan Guerreros, Arqueros, Lanceros y Monjes; nueve tecnologías en tres ramas lo afilan todo.",
       "El mapa se comparte con campamentos neutrales: goblins, trolls, nidos de arañas, guaridas de ladrones, calas piratas en el agua. Cada uno tiene guardianes, un puesto fijo que defienden, regeneración si los dejas en paz y una recompensa al limpiarlo. Mercados, mercenarios y tabernas neutrales esperan en el centro del mapa a quien llegue primero. Gana el último jugador con un Castillo en pie."
@@ -94,7 +95,8 @@ export const es: Content = {
     ]
   },
   maps: {
-    title: "Los mapas, dibujados desde sus datos",
+    title: "Los mapas",
+    heading: "Los mapas, dibujados desde sus datos",
     intro: "Estos son los tres mapas oficiales tal y como los guarda el juego: un carácter por casilla para el terreno, más listas de árboles, vetas de oro, campamentos, edificios neutrales y posiciones de salida. Pasa el ratón para ver qué hay en cada sitio.",
     list: [
       {

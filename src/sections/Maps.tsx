@@ -7,7 +7,7 @@ export function Maps() {
   return <section id="maps" className="section maps" aria-labelledby="maps-title">
     <SectionTitle id="maps-title" title={t.maps.title} />
     <PixelPanel skin="wood" className="board">
-      <PixelPanel className="sheet"><p>{t.maps.intro}</p><MapExplorer /></PixelPanel>
+      <PixelPanel className="sheet"><h3>{t.maps.heading}</h3><p>{t.maps.intro}</p><MapExplorer /></PixelPanel>
     </PixelPanel>
   </section>;
 }

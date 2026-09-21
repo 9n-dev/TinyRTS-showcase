@@ -8,9 +8,7 @@ game. Think a small Warcraft 3 with the expansion economy of Northgard.
 
 Built from scratch in **Godot 4.6 .NET and C#**, with the *Tiny Swords* art pack by Pixel Frog.
 
-**[Website with the trailer](https://9n-dev.github.io/TinyRTS-showcase/)** · [Trailer, 52 s (mp4)](https://github.com/9n-dev/TinyRTS-showcase/releases/latest)
-
-![A living village: Pawns gathering wood and gold, building a house and a tower, troops training](media/hero.gif)
+![A living village: Pawns gathering wood and gold, building a house and a tower, troops training](docs/media/hero.gif)
 
 ## What you do in a game
 
@@ -28,9 +26,9 @@ The last player with a Castle standing wins.
 
 | | |
 | --- | --- |
-| ![Blue and red armies clashing under the red towers](media/battle.gif) | ![Clearing a goblin village guarded by spear and torch goblins](media/camps.gif) |
+| ![Blue and red armies clashing under the red towers](docs/media/battle.gif) | ![Clearing a goblin village guarded by spear and torch goblins](docs/media/camps.gif) |
 | A battle between players | Clearing a neutral camp |
-| ![Painting a forest, a camp and a tower in the editor, then playing the map](media/editor.gif) | ![Warriors and archers clearing a spider nest beside a pond](media/spiders.gif) |
+| ![Painting a forest, a camp and a tower in the editor, then playing the map](docs/media/editor.gif) | ![Warriors and archers clearing a spider nest beside a pond](docs/media/spiders.gif) |
 | The map editor | A spider nest |
 
 ## Features
@@ -62,11 +60,11 @@ The last player with a Castle standing wins.
 
 | | |
 | --- | --- |
-| ![A large village with houses, a monastery, a barracks and towers](media/village.png) | ![Blue and red armies fighting beside a red tower and Castle](media/battle.png) |
-| ![Warriors and archers fighting spiders beside a pond](media/spiders.png) | ![A sheep pen on a plateau above the forest](media/plateau.png) |
-| ![A goblin village with a troll, closed by forest with a single entrance](media/goblin-village.png) | ![A plateau with a side stair cut into its cliff](media/stairs.png) |
-| ![Main menu on a parchment panel with a blue banner](media/menu.png) | ![The Castle panel with the training queue and rally point](media/training.png) |
-| ![The map editor with its piece bar and tool bar](media/editor.png) | ![The victory panel after the enemy Castle falls](media/victory.png) |
+| ![A large village with houses, a monastery, a barracks and towers](public/media/village.png) | ![Blue and red armies fighting beside a red tower and Castle](public/media/battle.png) |
+| ![Warriors and archers fighting spiders beside a pond](public/media/spiders.png) | ![A sheep pen on a plateau above the forest](public/media/plateau.png) |
+| ![A goblin village with a troll, closed by forest with a single entrance](public/media/goblin-village.png) | ![A plateau with a side stair cut into its cliff](public/media/stairs.png) |
+| ![Main menu on a parchment panel with a blue banner](public/media/menu.png) | ![The Castle panel with the training queue and rally point](public/media/training.png) |
+| ![The map editor with its piece bar and tool bar](public/media/editor.png) | ![The victory panel after the enemy Castle falls](public/media/victory.png) |
 
 ## How it is built
 
@@ -104,11 +102,23 @@ Playable from start to finish: economy, building, training, combat, technology, 
 neutral camps, saving, audio, editor, two languages. Development started on 8 September 2026. The roadmap points at
 a Steam release, which is why game statistics already live in the simulation and saves are one file per slot.
 
+## The website
+
+This repository is the website of the game: React, Vite and TypeScript, with the Tiny Swords interface over a living
+village painted on a canvas (the same world as my portfolio). Texts live in `src/content/`, one file per language.
+
+```
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # static site in dist/
+npm run test:e2e   # Playwright; the first time: npx playwright install chromium
+```
+
 ## Credits
 
 - Art: [Tiny Swords](https://pixelfrog-assets.itch.io/tiny-swords) and its Enemy Pack by Pixel Frog, used under
-  their license. The packs are not redistributed here.
-- Font: Caladea by Huerta Tipográfica, SIL Open Font License.
+  their license. The website uses sprites cut from the same packs.
+- Font: Pixelify Sans by Stefie Justprince, SIL Open Font License.
 - Sounds: Pixabay.
 - Engine: Godot Engine.
 

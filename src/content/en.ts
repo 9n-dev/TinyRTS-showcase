@@ -12,9 +12,10 @@ export type Content = {
   skip: string; description: string;
   nav: Record<(typeof SECTIONS)[number] | 'home' | 'main' | 'language', string>;
   hero: { tagline: string; watch: string; explore: string; note: string };
-  game: { title: string; paragraphs: string[]; clips: Media[] };
+  /** title goes on the ribbon, which is one line on any screen: keep it short. heading is the long one. */
+  game: { title: string; heading: string; paragraphs: string[]; clips: Media[] };
   features: { title: string; list: { head: string; body: string }[] };
-  maps: { title: string; intro: string; list: { id: MapId; name: string; desc: string }[]; legend: { color: string; name: string }[]; text: MapText };
+  maps: { title: string; heading: string; intro: string; list: { id: MapId; name: string; desc: string }[]; legend: { color: string; name: string }[]; text: MapText };
   gallery: { title: string; shots: Media[] };
   /** A number in braces, as in 'About {16000} lines', counts up when it scrolls into view. */
   built: { title: string; before: string[]; facts: { key: string; value: string }[]; after: string[] };
@@ -43,7 +44,8 @@ export const en: Content = {
     note: "52 seconds, with sound."
   },
   game: {
-    title: "What you do in a game",
+    title: "The game",
+    heading: "What you do in a game",
     paragraphs: [
       "You start with a Castle, three Pawns and a handful of resources. Pawns cut trees, mine gold and carry every load back to the Castle by hand. Trees leave stumps and gold veins run dry, so sooner or later you build a second Castle on the next patch of resources. Sheep pens feed you passively; Houses raise the population cap; the Barracks, Archery and Monastery train Warriors, Archers, Lancers and Monks; nine technologies in three branches make everything sharper.",
       "The map is shared with neutral camps: goblins, trolls, spider nests, thief hideouts, pirate coves in the water. Each one has guardians, a fixed post they defend, regeneration if you leave them alone, and a reward when you clear them. Neutral markets, mercenaries and taverns sit in the middle of the map for whoever gets there first. The last player with a Castle standing wins."
@@ -117,7 +119,8 @@ export const en: Content = {
     ]
   },
   maps: {
-    title: "The maps, drawn from their data",
+    title: "The maps",
+    heading: "The maps, drawn from their data",
     intro: "These are the three official maps as the game stores them: one character per tile for the terrain, plus lists of trees, gold veins, camps, neutral buildings and start positions. Hover to see what is where.",
     list: [
       {

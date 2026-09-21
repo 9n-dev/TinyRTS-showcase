@@ -64,6 +64,8 @@ body.modal-open { overflow: hidden; }
 
 @media (max-width: 760px) {
   .hero-paper h1 { font-size: 48px; }
+  /* Two buttons with Spanish labels do not fit side by side in the scroll. */
+  .hero-actions { flex-direction: column; align-items: stretch; }
   .board { padding: 16px; gap: 14px; }
   .sheet { padding: 26px 22px; }
   .sheet p, .credit-list li { font-size: 16px; line-height: 1.65; }
