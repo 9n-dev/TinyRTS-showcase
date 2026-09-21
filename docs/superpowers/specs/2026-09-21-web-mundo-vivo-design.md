@@ -91,3 +91,21 @@ y con confirmación del autor.
 ## Fuera de alcance
 
 Campamentos, enemigos y combate en el mundo. Aligerar el historial de git de los vídeos. Dominio propio.
+
+## Revisión de contenido (2026-09-21, después de la primera versión)
+
+Tras comparar con 20 webs de juegos indie y con las guías de Zukowski, Valve y presskit(), el contenido pasa de
+contar cómo está hecho el juego a contar primero qué es y qué hace el jugador:
+
+- Portada: gancho con referencia («un Warcraft 3 en pequeño con la economía de expansión de Northgard»), una frase
+  con los verbos del juego y una línea de datos (plataformas, un jugador, en desarrollo).
+- Características: seis pilares de jugador con su captura. Lo técnico (20 Hz, A*, ajuste de la IA) baja a la tabla
+  de «Cómo está hecho».
+- Sección nueva `guide`: unidades, edificios, tecnologías, campamentos y controles en pestañas, con los sprites del
+  mundo. Datos de `docs/manual.md` del juego, contrastados con su código; nombres de `data/i18n`.
+- Sección nueva `status`: ficha de un vistazo, estado, lo que queda (las tres fases pendientes de la hoja de ruta) y
+  preguntas frecuentes. Sin fechas ni promesas. `credits` se queda solo con los créditos.
+- Menú: El juego, Guía, Mapas, Capturas, Estado, Técnica.
+
+Aplazado por decisión del autor: llamada a seguir el juego (lista de correo, redes, Discord), contacto, kit de
+prensa y «sobre el autor». Se retoman cuando exista la página de Steam o un canal que ofrecer.

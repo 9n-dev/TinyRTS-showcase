@@ -7,11 +7,13 @@ export function Features() {
     <SectionTitle id="features-title" title={t.features.title} />
     <PixelPanel skin="wood" className="board">
       <ul className="feature-list">
-        {t.features.list.map(feature => <li key={feature.body}><PixelPanel className="feature">
-          {feature.head && <h3>{feature.head.replace(/\.$/, '')}</h3>}
-          <p>{feature.body.charAt(0).toUpperCase() + feature.body.slice(1)}</p>
+        {t.features.list.map(feature => <li key={feature.head}><PixelPanel className="feature">
+          <img src={`/media/${feature.shot}.png`} width={1280} height={720} alt={feature.alt} loading="lazy" />
+          <h3>{feature.head}</h3>
+          <p>{feature.body}</p>
         </PixelPanel></li>)}
       </ul>
+      <PixelPanel className="sheet"><p>{t.features.extras}</p></PixelPanel>
     </PixelPanel>
   </section>;
 }

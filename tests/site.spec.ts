@@ -28,11 +28,37 @@ test('no links to the private repository', async ({ page }) => {
 
 test('menu anchors exist, clips are there and the counters reach their value', async ({ page }) => {
   await page.goto('/?lang=en');
-  for (const id of ['home', 'game', 'features', 'maps', 'gallery', 'built', 'credits']) await expect(page.locator(`section#${id}`)).toHaveCount(1);
+  for (const id of ['home', 'game', 'features', 'guide', 'maps', 'gallery', 'status', 'built', 'credits']) await expect(page.locator(`section#${id}`)).toHaveCount(1);
   for (const link of await page.locator('.nav-links a').all()) await expect(page.locator(`section${await link.getAttribute('href')}`)).toHaveCount(1);
   expect(await page.locator('video.clip').count()).toBe(4);
   await page.locator('#built table').scrollIntoViewIfNeeded();
   await expect(page.locator('#built table')).toContainText('16,000');
+});
+
+test('field guide: five tabs, the keyboard walks them, and the camps are all there', async ({ page }) => {
+  await page.goto('/?lang=en');
+  const guide = page.locator('#guide');
+  await expect(guide.getByRole('tab')).toHaveCount(5);
+  await expect(guide.locator('.card')).toHaveCount(5);
+  await guide.getByRole('tab', { name: 'Units' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(guide.getByRole('tab', { name: 'Buildings' })).toBeFocused();
+  await expect(guide.locator('.card')).toHaveCount(7);
+  await guide.getByRole('tab', { name: 'Technologies' }).click();
+  await expect(guide.locator('.branch li')).toHaveCount(9);
+  await guide.getByRole('tab', { name: 'Camps' }).click();
+  await expect(guide.locator('.camp-table tbody tr')).toHaveCount(21);
+  await guide.getByRole('tab', { name: 'Controls' }).click();
+  await expect(guide.locator('kbd').first()).toBeVisible();
+});
+
+test('status answers the practical questions', async ({ page }) => {
+  await page.goto('/?lang=es');
+  const status = page.locator('#status');
+  await expect(status.locator('.glance')).toContainText('Linux y Windows');
+  await expect(status.locator('.roadmap li')).toHaveCount(3);
+  await expect(status.locator('.faq')).toContainText('multijugador');
+  await expect(page.locator('.feature img')).toHaveCount(6);
 });
 
 test('trailer modal opens with the video of the language and closes with Escape', async ({ page }) => {

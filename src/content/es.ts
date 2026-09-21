@@ -1,4 +1,5 @@
 import type { Content } from './en';
+import { guide } from './guide.es';
 
 export const es: Content = {
   skip: "Saltar al contenido",
@@ -8,16 +9,22 @@ export const es: Content = {
     language: "Idioma",
     home: "Inicio",
     game: "El juego",
+    guide: "Guía",
     maps: "Mapas",
     gallery: "Capturas",
-    built: "Técnica",
-    credits: "Créditos"
+    status: "Estado",
+    built: "Técnica"
   },
   hero: {
-    tagline: "Un pequeño juego de estrategia en tiempo real, hecho desde cero en Godot 4 y C#.",
+    tagline: "Un Warcraft 3 en pequeño con la economía de expansión de Northgard.",
+    description: "Estrategia en tiempo real en pixel art. Levanta tu base, limpia campamentos neutrales por su recompensa y derriba el Castillo de hasta tres IAs.",
     watch: "Ver el tráiler",
-    explore: "Explorar los mapas",
-    note: "52 segundos, con sonido."
+    explore: "Ver qué trae",
+    facts: [
+      "Linux y Windows",
+      "Un jugador",
+      "En desarrollo"
+    ]
   },
   game: {
     title: "El juego",
@@ -53,46 +60,43 @@ export const es: Content = {
     title: "Características",
     list: [
       {
-        head: "Simulación en tiempo real",
-        body: "a paso fijo de 20 Hz, dibujada a 60 fps interpolando entre ticks."
+        head: "Una economía que te saca de la base",
+        shot: "village",
+        alt: "Una aldea grande con casas, monasterio, cuartel y torres",
+        body: "Los árboles dejan tocón y las vetas se agotan. Tus Peones llevan cada carga a mano hasta el Castillo, así que antes o después necesitas un segundo Castillo junto al siguiente grupo de recursos, y un ejército que lo defienda."
       },
       {
-        head: "Movimiento libre en píxeles.",
-        body: "A* sobre la cuadrícula de 64 px sin cortar esquinas, suavizado del camino y separación local por hash espacial. Las unidades nunca bloquean casillas; edificios, recursos y terreno sí. 200 unidades cruzan el mapa a 60 fps."
+        head: "21 campamentos neutrales que merecen el riesgo",
+        shot: "goblin-village",
+        alt: "Una aldea goblin con un troll, cerrada por bosque con una sola entrada",
+        body: "Goblins, arañas, trolls, piratas, un minotauro. Cada campamento defiende su puesto, se cura si lo dejas en paz y, cuando cae su último guardián, te paga en recursos o con una criatura que se une a tu ejército."
       },
       {
-        head: "Una economía de viajes.",
-        body: "Árboles y vetas finitos, Peones que recolectan, se cargan y entregan, comida pasiva de los corrales y expansión con un segundo Castillo. Mercado, mercenarios y taberna neutrales."
+        head: "La altura cuenta",
+        shot: "stairs",
+        alt: "Una meseta con una escalera lateral tallada en el acantilado",
+        body: "Mesetas y acantilados solo se unen por escaleras de una casilla. Arqueros y torres ven y disparan más lejos desde arriba, y el cuerpo a cuerpo tiene que buscar la escalera."
       },
       {
-        head: "Altura que cuenta.",
-        body: "Mesetas y acantilados unidos solo por escaleras laterales de una casilla. Las unidades a distancia y las torres ganan alcance y visión desde arriba; el cuerpo a cuerpo nunca cruza un borde."
+        head: "Rivales que juegan con tus reglas",
+        shot: "battle",
+        alt: "Ejércitos azul y rojo peleando junto a una torre y un Castillo rojos",
+        body: "De una a tres IAs que se expanden, comercian en el mercado, levantan torres camino de tu base y eligen a quién atacar. Tres dificultades cambian su ritmo y el tamaño de sus oleadas, nunca los costes ni las reglas: no hacen trampas."
       },
       {
-        head: "21 tipos de campamento neutral",
-        body: "con 24 criaturas del Enemy Pack, incluidos guardianes estáticos de agua como el tiburón arponero y el pez bomba. El mapa de cuatro jugadores tiene 33 campamentos."
+        head: "Controles de RTS clásico",
+        shot: "training",
+        alt: "El panel del Castillo con la cola de entrenamiento y el punto de reunión",
+        body: "Recuadro de selección, click derecho contextual, atacar en movimiento, mantener posición, grupos de control, colas de obra y de entrenamiento, y niebla de guerra con minimapa y avisos. Todas las teclas se pueden reasignar."
       },
       {
-        head: "IA rival",
-        body: "para dos a cuatro jugadores que se expande, comercia en el mercado, levanta torres camino del enemigo y elige el objetivo de cada oleada por distancia o debilidad. Ajustada jugando cientos de partidas simuladas, porque la simulación no tiene azar y una sola partida es una muestra caótica, no una medida."
-      },
-      {
-        head: "Niebla de guerra",
-        body: "de tres estados, minimapa con avisos y controles de Warcraft 3: recuadro, click derecho contextual, atacar en movimiento, parar y mantener, grupos de control, bordes y WASD. Todas las teclas se pueden reasignar."
-      },
-      {
-        head: "Editor de mapas",
-        body: "al estilo Mario Maker. Se pinta terreno, recursos, campamentos y posiciones de salida sobre el mundo real, P prueba el mapa en menos de una décima de segundo y Esc devuelve al editor. Pincel, rectángulo, cubo y selección, copiar y pegar, girar y espejar, y un comprobador que avisa de bases inaccesibles, recursos vigilados o falta de sitio para construir."
-      },
-      {
-        head: "Tres mapas oficiales.",
-        body: "El Valle (96×64, dos jugadores), La Encrucijada (160×160, cuatro jugadores, simetría rotacional) y Cuatro vientos, hecho con el editor. Los dos primeros salen de generadores en Python que validan simetría, conectividad, anchura de los cuellos y distancias entre bases."
-      },
-      {
-        head: "",
-        body: "Ranuras de guardado con autoguardado, español e inglés, 59 sonidos, música y ambiente."
+        head: "Un editor de mapas dentro del juego",
+        shot: "editor",
+        alt: "El editor de mapas con su barra de piezas y de herramientas",
+        body: "Pinta terreno, recursos, campamentos y bases sobre el mundo real, pulsa P y estás jugando tu mapa en menos de una décima de segundo; Esc te devuelve al editor. Un comprobador avisa de bases inaccesibles o recursos vigilados, y cada mapa es un fichero que puedes compartir."
       }
-    ]
+    ],
+    extras: "Y además: tutorial, tres mapas oficiales para dos y cuatro jugadores, nueve tecnologías en tres ramas, ranuras de guardado con autoguardado, 59 sonidos, música y ambiente, en español e inglés."
   },
   maps: {
     title: "Los mapas",
@@ -303,6 +307,18 @@ export const es: Content = {
       {
         key: "Textos",
         value: "{519} cadenas traducidas a español e inglés"
+      },
+      {
+        key: "Simulación",
+        value: "Paso fijo de 20 Hz, dibujada a 60 fps interpolando entre ticks"
+      },
+      {
+        key: "Movimiento",
+        value: "A* sobre la cuadrícula de 64 px sin cortar esquinas, suavizado del camino y separación local por hash espacial. {200} unidades cruzan el mapa a 60 fps"
+      },
+      {
+        key: "IA",
+        value: "Ajustada jugando cientos de partidas simuladas: la simulación no tiene azar, así que una sola partida es una muestra caótica, no una medida"
       }
     ],
     after: [
@@ -312,8 +328,6 @@ export const es: Content = {
   },
   credits: {
     title: "Créditos",
-    statusTitle: "Estado",
-    status: "Jugable de principio a fin: economía, construcción, entrenamiento, combate, tecnología, IA para dos y cuatro jugadores, campamentos neutrales, guardado, audio, editor y dos idiomas. El desarrollo empezó el 8 de septiembre de 2026. La hoja de ruta apunta a Steam, y por eso las estadísticas de partida ya viven en la simulación y cada guardado es un fichero por ranura.",
     list: [
       {
         before: "Arte: ",
@@ -334,6 +348,90 @@ export const es: Content = {
       }
     ]
   },
+  status: {
+    title: "Estado",
+    factsTitle: "De un vistazo",
+    facts: [
+      {
+        key: "Género",
+        value: "Estrategia en tiempo real, pixel art"
+      },
+      {
+        key: "Plataformas",
+        value: "Linux y Windows. Mando y Steam Deck están en la hoja de ruta"
+      },
+      {
+        key: "Jugadores",
+        value: "Uno, contra 1 a 3 IAs, todos contra todos"
+      },
+      {
+        key: "Dificultad",
+        value: "Fácil, Normal y Difícil"
+      },
+      {
+        key: "Una partida",
+        value: "Unos 20 minutos"
+      },
+      {
+        key: "Idiomas",
+        value: "Español e inglés, interfaz y textos"
+      },
+      {
+        key: "Mapas",
+        value: "3 oficiales y editor integrado"
+      },
+      {
+        key: "Guardado",
+        value: "Ranuras con autoguardado"
+      }
+    ],
+    nowTitle: "Cómo está hoy",
+    nextTitle: "Lo que queda",
+    next: [
+      {
+        head: "Licencias, créditos y música",
+        body: "Archivar las licencias del arte, la fuente y los sonidos, y añadir la pantalla de créditos."
+      },
+      {
+        head: "Pulido y mando",
+        body: "Soporte de mando pensando en Steam Deck, y los pendientes de pulido del juego y del editor."
+      },
+      {
+        head: "Distribución y tienda",
+        body: "Icono, versiones, builds automáticas y la página de Steam con sus cápsulas, capturas y tráiler."
+      }
+    ],
+    nextNote: "Es la hoja de ruta, no una promesa: todavía no hay fecha ni compromiso de publicación.",
+    faqTitle: "Preguntas",
+    faq: [
+      {
+        q: "¿Cuándo sale y cuánto costará?",
+        a: "Todavía no hay fecha ni precio. El juego se puede jugar de principio a fin, pero quedan las tres fases de arriba y prefiero no prometer una fecha que no controlo."
+      },
+      {
+        q: "¿Hay demo?",
+        a: "Todavía no. Si la hay, se anunciará aquí."
+      },
+      {
+        q: "¿Tendrá multijugador?",
+        a: "No. TinyRTS está pensado como un juego para un jugador contra la IA, y no hay red en la hoja de ruta."
+      },
+      {
+        q: "¿La IA hace trampas?",
+        a: "No. Paga los mismos costes y sigue las mismas reglas que tú. La dificultad cambia lo bien que lleva su economía y el tamaño de sus oleadas."
+      },
+      {
+        q: "¿Puedo hacer y compartir mapas?",
+        a: "Sí. El editor viene con el juego, su comprobador te dice cuándo un mapa está listo para publicarse, y cada mapa es un fichero .json que puedes pasar a quien quieras."
+      },
+      {
+        q: "¿Con qué está hecho?",
+        a: "Godot 4 .NET y C#, con los packs de arte Tiny Swords de Pixel Frog. El detalle está en la sección Técnica."
+      }
+    ],
+    now: "Jugable de principio a fin: economía, construcción, entrenamiento, combate, tecnología, IA para dos y cuatro jugadores, campamentos neutrales, guardado, audio, editor y dos idiomas. El desarrollo empezó el 8 de septiembre de 2026. La hoja de ruta apunta a Steam, y por eso las estadísticas de partida ya viven en la simulación y cada guardado es un fichero por ranura."
+  },
+  guide,
   footer: {
     rights: "Capturas, vídeo y textos © 2026 9n-dev.",
     attribution: "Arte: Tiny Swords, de Pixel Frog.",

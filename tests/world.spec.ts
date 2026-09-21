@@ -13,13 +13,13 @@ test('autotile: convex edges around a pond', () => {
   expect(hasFoam(pond, 0, 0)).toBe(false);
 });
 
-const layout = (h: number) => ['home', 'game', 'features', 'maps', 'gallery', 'built', 'credits', 'footer'].map((id, i) =>
+const layout = (h: number) => ['home', 'game', 'features', 'guide', 'maps', 'gallery', 'status', 'built', 'credits', 'footer'].map((id, i) =>
   ({ id, rects: [{ x: 440, y: i * h + (i ? 448 : 150), w: 1040, h: h - (i ? 448 : 150) }] }));
 for (const h of [900, 1300, 2000]) for (const width of [780, 1440, 1920, 2560]) test(`valid world: ${h}px sections, ${width}px wide`, () => {
-  const world = compose(layout(h), width, 8 * h + 400);
+  const world = compose(layout(h), width, 10 * h + 400);
   expect(validate(world)).toEqual([]);
   expect(world.placed.map(s => s.id)).toEqual(['home', 'game', 'maps', 'gallery', 'built', 'shore']);
-  expect(compose(layout(h), width, 8 * h + 400)).toEqual(world);
+  expect(compose(layout(h), width, 10 * h + 400)).toEqual(world);
 });
 
 test('woodcutter completes its cycle and comes back loaded', () => {

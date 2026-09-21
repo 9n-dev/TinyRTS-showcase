@@ -1,5 +1,8 @@
-/** Sections with a link in the navigation, in page order. 'home' and 'features' exist on the page but not in the menu. */
-export const SECTIONS = ['game', 'maps', 'gallery', 'built', 'credits'] as const;
+import type { SpriteId } from '../world/sprites.generated';
+import { guide } from './guide.en';
+
+/** Sections with a link in the navigation, in page order. 'home', 'features' and 'credits' exist on the page but not in the menu. */
+export const SECTIONS = ['game', 'guide', 'maps', 'gallery', 'status', 'built'] as const;
 export type MapId = 'valley' | 'crossroads' | 'cuatro-vientos';
 type Media = { id: string; alt: string; caption: string };
 /** Words the map explorer paints and says. '{n}', '{t}', '{w}'… are filled in by MapExplorer. */
@@ -8,18 +11,39 @@ export type MapText = {
   campGeneric: string; campDetail: string; tierLabel: string; tiers: Record<string, string>; neutrals: Record<string, string>;
   neutralDetail: string; start: string; startDetail: string; mapInfo: string; loading: string; loadError: string; camps: Record<string, string>;
 };
+type Card = { sprite: SpriteId; name: string; cost: string; role: string };
+export type Tier = 'easy' | 'medium' | 'hard';
+/** The player's manual in five tabs. Names are the game's own, from its data/i18n files. */
+export type Guide = {
+  title: string; heading: string; intro: string;
+  tabs: Record<'units' | 'buildings' | 'techs' | 'camps' | 'controls', string>;
+  costLabel: string; fromLabel: string; needsLabel: string;
+  units: (Card & { from: string })[]; unitsNote: string;
+  buildings: Card[]; buildingsNote: string;
+  techs: { branch: string; at: string; list: { name: string; cost: string; effect: string; needs?: string }[] }[]; techsNote: string;
+  camps: {
+    intro: string; guardsLabel: string; rewardLabel: string; joinsLabel: string;
+    tiers: { tier: Tier; name: string; list: { name: string; guards: string; reward: string; joins: string }[] }[];
+    waterNote: string; neutralsTitle: string; neutrals: { name: string; text: string }[];
+  };
+  controls: { groups: { title: string; rows: { keys: string; action: string }[] }[]; note: string };
+};
 export type Content = {
   skip: string; description: string;
   nav: Record<(typeof SECTIONS)[number] | 'home' | 'main' | 'language', string>;
-  hero: { tagline: string; watch: string; explore: string; note: string };
+  hero: { tagline: string; description: string; watch: string; explore: string; facts: string[] };
   /** title goes on the ribbon, which is one line on any screen: keep it short. heading is the long one. */
   game: { title: string; heading: string; paragraphs: string[]; clips: Media[] };
-  features: { title: string; list: { head: string; body: string }[] };
+  /** Pillars: what the player does or gets, each with a screenshot of public/media. Engine internals belong in built. */
+  features: { title: string; list: { head: string; body: string; shot: string; alt: string }[]; extras: string };
+  guide: Guide;
   maps: { title: string; heading: string; intro: string; list: { id: MapId; name: string; desc: string }[]; legend: { color: string; name: string }[]; text: MapText };
   gallery: { title: string; shots: Media[] };
   /** A number in braces, as in 'About {16000} lines', counts up when it scrolls into view. */
   built: { title: string; before: string[]; facts: { key: string; value: string }[]; after: string[] };
-  credits: { title: string; statusTitle: string; status: string; list: { before: string; link?: { href: string; text: string }; after?: string }[] };
+  status: { title: string; factsTitle: string; facts: { key: string; value: string }[]; nowTitle: string; now: string; nextTitle: string;
+    next: { head: string; body: string }[]; nextNote: string; faqTitle: string; faq: { q: string; a: string }[] };
+  credits: { title: string; list: { before: string; link?: { href: string; text: string }; after?: string }[] };
   footer: { rights: string; attribution: string; top: string };
   ui: { close: string; prev: string; next: string; trailerTitle: string; mapLabel: string };
 };
@@ -32,16 +56,22 @@ export const en: Content = {
     language: "Language",
     home: "Home",
     game: "The game",
+    guide: "Guide",
     maps: "Maps",
     gallery: "Screenshots",
-    built: "Tech",
-    credits: "Credits"
+    status: "Status",
+    built: "Tech"
   },
   hero: {
-    tagline: "A small real-time strategy game, built from scratch in Godot 4 and C#.",
+    tagline: "A small Warcraft 3 with the expansion economy of Northgard.",
+    description: "A pixel-art real-time strategy game. Build your base, clear neutral camps for their rewards and bring down the Castle of up to three AI players.",
     watch: "Watch the trailer",
-    explore: "Explore the maps",
-    note: "52 seconds, with sound."
+    explore: "See what is in it",
+    facts: [
+      "Linux and Windows",
+      "Single-player",
+      "In development"
+    ]
   },
   game: {
     title: "The game",
@@ -77,46 +107,43 @@ export const en: Content = {
     title: "Features",
     list: [
       {
-        head: "Real-time simulation",
-        body: "at a fixed 20 Hz step, rendered at 60 fps with interpolation between ticks."
+        head: "An economy that pushes you out of your base",
+        shot: "village",
+        alt: "A large village with houses, a monastery, a barracks and towers",
+        body: "Trees leave stumps and gold veins run dry. Your Pawns carry every load back to the Castle by hand, so sooner or later you need a second Castle next to the next patch of resources, and an army to hold it."
       },
       {
-        head: "Free movement in pixels.",
-        body: "A* on the 64 px grid without corner cutting, path smoothing and local separation via a spatial hash. Units never block cells; buildings, resources and terrain do. 200 units cross the map at 60 fps."
+        head: "21 neutral camps worth the risk",
+        shot: "goblin-village",
+        alt: "A goblin village with a troll, closed by forest with a single entrance",
+        body: "Goblins, spiders, trolls, pirates, a minotaur. Every camp defends its post, heals if you leave it alone and, when its last guardian falls, pays you in resources or with a creature that joins your army."
       },
       {
-        head: "An economy of trips.",
-        body: "Finite trees and gold veins, Pawns that gather, load up and deliver, passive food from sheep pens, expansion with a second Castle. Neutral market, mercenaries and tavern."
+        head: "High ground matters",
+        shot: "stairs",
+        alt: "A plateau with a side stair cut into its cliff",
+        body: "Plateaus and cliffs are joined only by one-tile stairs. Archers and towers see and shoot farther from above, while melee units have to find the stairs."
       },
       {
-        head: "Elevation that matters.",
-        body: "Plateaus and cliffs joined only by one-tile side stairs. Ranged units and towers gain range and vision from above; melee never crosses an edge."
+        head: "Opponents that play by your rules",
+        shot: "battle",
+        alt: "Blue and red armies fighting beside a red tower and Castle",
+        body: "One to three AI players that expand, trade at the market, build towers on the way to your base and choose whom to attack. Three difficulty levels change their pace and the size of their waves, never the costs or the rules: they do not cheat."
       },
       {
-        head: "21 kinds of neutral camp",
-        body: "with 24 creatures from the Enemy Pack, including static water guardians like the harpoon shark and the bomb fish. The four-player map has 33 camps."
+        head: "Classic RTS controls",
+        shot: "training",
+        alt: "The Castle panel with the training queue and rally point",
+        body: "Box select, contextual right click, attack-move, hold position, control groups, build and training queues, and fog of war with a minimap and alerts. Every key can be rebound."
       },
       {
-        head: "AI opponents",
-        body: "for two to four players that expand, trade at the market, build towers on the way to the enemy and pick wave targets by path length or weakness. Tuned by playing hundreds of simulated games, because the simulation has no randomness and a single game is a chaotic sample rather than a measure."
-      },
-      {
-        head: "Fog of war",
-        body: "with three states, a minimap with alerts, and Warcraft 3 controls: box select, contextual right click, attack-move, stop and hold, control groups, edge and WASD scrolling. Every key can be rebound."
-      },
-      {
-        head: "Map editor",
-        body: "in the Mario Maker spirit. Paint terrain, resources, camps and start positions over the real world, press P to play the map in under a tenth of a second, Esc to keep editing. Brush, rectangle, fill and selection tools, copy and paste, rotate and mirror, and a validator that warns about unreachable bases, guarded resources or missing building room."
-      },
-      {
-        head: "Three official maps.",
-        body: "The Valley (96×64, two players), the Crossroads (160×160, four players, rotational symmetry) and Four Winds, made with the editor. The first two come from Python generators that validate symmetry, connectivity, choke widths and travel distances between bases."
-      },
-      {
-        head: "",
-        body: "Save slots with autosave, Spanish and English, 59 sound effects, music and ambience."
+        head: "A map editor inside the game",
+        shot: "editor",
+        alt: "The map editor with its piece bar and tool bar",
+        body: "Paint terrain, resources, camps and bases over the real world, press P and you are playing your map in under a tenth of a second; Esc takes you back. A checker warns about unreachable bases or guarded resources, and a map is a single file you can share."
       }
-    ]
+    ],
+    extras: "And also: a tutorial, three official maps for two and four players, nine technologies in three branches, save slots with autosave, 59 sound effects, music and ambience, in English and Spanish."
   },
   maps: {
     title: "The maps",
@@ -327,6 +354,18 @@ export const en: Content = {
       {
         key: "Text",
         value: "{519} localized strings in Spanish and English"
+      },
+      {
+        key: "Simulation",
+        value: "Fixed 20 Hz step, rendered at 60 fps with interpolation between ticks"
+      },
+      {
+        key: "Movement",
+        value: "A* on the 64 px grid without corner cutting, path smoothing and local separation via a spatial hash. {200} units cross the map at 60 fps"
+      },
+      {
+        key: "AI",
+        value: "Tuned by playing hundreds of simulated games: the simulation has no randomness, so a single game is a chaotic sample rather than a measure"
       }
     ],
     after: [
@@ -336,8 +375,6 @@ export const en: Content = {
   },
   credits: {
     title: "Credits",
-    statusTitle: "Status",
-    status: "Playable from start to finish: economy, building, training, combat, technology, AI for two and four players, neutral camps, saving, audio, editor, two languages. Development started on 8 September 2026. The roadmap points at a Steam release, which is why game statistics already live in the simulation and saves are one file per slot.",
     list: [
       {
         before: "Art: ",
@@ -358,6 +395,90 @@ export const en: Content = {
       }
     ]
   },
+  status: {
+    title: "Status",
+    factsTitle: "At a glance",
+    facts: [
+      {
+        key: "Genre",
+        value: "Real-time strategy, pixel art"
+      },
+      {
+        key: "Platforms",
+        value: "Linux and Windows. Controller and Steam Deck are on the roadmap"
+      },
+      {
+        key: "Players",
+        value: "One, against 1 to 3 AI players, free-for-all"
+      },
+      {
+        key: "Difficulty",
+        value: "Easy, Normal and Hard"
+      },
+      {
+        key: "A match",
+        value: "Around 20 minutes"
+      },
+      {
+        key: "Languages",
+        value: "English and Spanish, interface and text"
+      },
+      {
+        key: "Maps",
+        value: "3 official maps and a built-in editor"
+      },
+      {
+        key: "Saving",
+        value: "Save slots with autosave"
+      }
+    ],
+    nowTitle: "Where it is now",
+    nextTitle: "What is left",
+    next: [
+      {
+        head: "Licences, credits and music",
+        body: "File the licences of the art, the font and the sounds, and add the credits screen."
+      },
+      {
+        head: "Polish and controller",
+        body: "Controller support with the Steam Deck in mind, and the pending polish of the game and the editor."
+      },
+      {
+        head: "Distribution and store",
+        body: "Icon, versioning, automated builds and the Steam page with its capsules, screenshots and trailer."
+      }
+    ],
+    nextNote: "This is the roadmap, not a promise: there is no date and no commitment to publish yet.",
+    faqTitle: "Questions",
+    faq: [
+      {
+        q: "When does it come out, and what will it cost?",
+        a: "There is no date and no price yet. The game can be played from start to finish, but the three phases above are still to do and I would rather not promise a date I do not control."
+      },
+      {
+        q: "Is there a demo?",
+        a: "Not yet. If there is one, it will be announced here."
+      },
+      {
+        q: "Will it have multiplayer?",
+        a: "No. TinyRTS is designed as a single-player game against the AI, and there is no networking on the roadmap."
+      },
+      {
+        q: "Does the AI cheat?",
+        a: "No. It pays the same costs and follows the same rules as you. Difficulty changes how well it runs its economy and how big its attack waves are."
+      },
+      {
+        q: "Can I make and share maps?",
+        a: "Yes. The editor comes with the game, its checker tells you when a map is ready to publish, and each map is a single .json file you can pass on."
+      },
+      {
+        q: "What is it made with?",
+        a: "Godot 4 .NET and C#, with the Tiny Swords art packs by Pixel Frog. The details are in the Tech section."
+      }
+    ],
+    now: "Playable from start to finish: economy, building, training, combat, technology, AI for two and four players, neutral camps, saving, audio, editor, two languages. Development started on 8 September 2026. The roadmap points at a Steam release, which is why game statistics already live in the simulation and saves are one file per slot."
+  },
+  guide,
   footer: {
     rights: "Screenshots, video and text © 2026 9n-dev.",
     attribution: "Art: Tiny Swords by Pixel Frog.",

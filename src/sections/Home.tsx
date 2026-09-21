@@ -8,13 +8,14 @@ export function Home({ onTrailer }: { onTrailer(): void }) {
       <PixelPanel className="hero-paper" skin="scroll">
         <h1 id="home-title">TinyRTS</h1>
         <p className="hero-role">{t.hero.tagline}</p>
+        <p className="hero-description">{t.hero.description}</p>
         <div className="hero-actions">
           {/* A real link to the file: without JavaScript, or opened in a new tab, it still plays the trailer. */}
           <PixelButton id="play-trailer" href={`/media/trailer-${lang}-720p.mp4`} onClick={event => { event.preventDefault(); onTrailer(); }}>
             <span aria-hidden="true">▶</span> {t.hero.watch}</PixelButton>
-          <PixelButton href="#maps" className="secondary">{t.hero.explore}</PixelButton>
+          <PixelButton href="#guide" className="secondary">{t.hero.explore}</PixelButton>
         </div>
-        <p className="hero-note">{t.hero.note}</p>
+        <ul className="hero-facts">{t.hero.facts.map(fact => <li key={fact}>{fact}</li>)}</ul>
       </PixelPanel>
     </div>
   </section>;

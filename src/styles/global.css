@@ -31,7 +31,7 @@ main { position: relative; }
 /* The top margin is where a strip of the world shows at full width (5 tiles plus breathing room). */
 .game, .maps, .gallery, .built { max-width: 1040px; margin: 320px auto 0; padding: 56px 40px 72px; }
 /* No strip above these two: only a breath of forest. */
-.features, .credits { max-width: 1040px; margin: 0 auto; padding: 56px 40px 72px; }
+.features, .guide, .status, .credits { max-width: 1040px; margin: 0 auto; padding: 56px 40px 72px; }
 /* The home scene is 960px tall: on shorter screens the first section waits for it to end. */
 .game { margin-top: calc(392px + max(0px, 960px - 100vh)); }
 .section-heading { text-align: center; margin-bottom: 24px; }
@@ -42,17 +42,17 @@ main { position: relative; }
 .footer-content .attribution { margin-top: 6px; color: var(--ink-muted); }
 .footer-content a { font: 16px/1.4 var(--pixel); white-space: nowrap; padding: 8px 0; }
 @media (max-width: 1100px) {
-  .game, .features, .maps, .gallery, .built, .credits { padding-inline: 32px; }
+  .game, .features, .guide, .maps, .gallery, .status, .built, .credits { padding-inline: 32px; }
 }
 @media (max-width: 760px) {
   .game, .maps, .gallery, .built { margin-top: 190px; }
-  .game, .features, .maps, .gallery, .built, .credits { padding: 36px 16px 48px; }
+  .game, .features, .guide, .maps, .gallery, .status, .built, .credits { padding: 36px 16px 48px; }
   .world { padding-bottom: 176px; }
   .site-footer { padding: 0 16px 36px; }
   .footer-content { padding: 20px; align-items: flex-start; flex-direction: column; gap: 8px; }
 }
 @media (max-width: 370px) {
-  .game, .features, .maps, .gallery, .built, .credits { padding-inline: 12px; }
+  .game, .features, .guide, .maps, .gallery, .status, .built, .credits { padding-inline: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

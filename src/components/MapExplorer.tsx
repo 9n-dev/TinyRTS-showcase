@@ -137,7 +137,7 @@ export function MapExplorer() {
   const info = failed ? text.loadError : !map ? text.loading
     : text.mapInfo.replace('{w}', String(map.cols)).replace('{h}', String(map.rows)).replace('{p}', String(map.players)).replace('{c}', String(map.camps.length));
   return <div className="map-explorer">
-    <div className="map-tabs" role="tablist">
+    <div className="tabs" role="tablist">
       {list.map(entry => <button key={entry.id} type="button" role="tab" aria-selected={entry.id === id} onClick={() => setId(entry.id)}>{entry.name}</button>)}
     </div>
     <p className="map-desc">{list.find(entry => entry.id === id)!.desc}</p>
