@@ -18,7 +18,7 @@ export function Lightbox({ shots, index, onIndex }: { shots: Shot[]; index: numb
     <button ref={close} className="lightbox-close" type="button" aria-label={t.ui.close} onClick={() => onIndex(null)}>×</button>
     <button className="lightbox-prev" type="button" aria-label={t.ui.prev} onClick={() => go(-1)}>‹</button>
     <figure>
-      <img src={`/media/${shot.id}.png`} alt={shot.alt} />
+      <img src={`${import.meta.env.BASE_URL}media/${shot.id}.png`} alt={shot.alt} />
       <figcaption>{shot.caption} <span className="lightbox-count">{index + 1} / {shots.length}</span></figcaption>
     </figure>
     <button className="lightbox-next" type="button" aria-label={t.ui.next} onClick={() => go(1)}>›</button>

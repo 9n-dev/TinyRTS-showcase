@@ -11,8 +11,8 @@ export function Gallery() {
     <PixelPanel skin="wood" className="board">
       <div className="shots">
         {t.gallery.shots.map((shot, index) => <figure key={shot.id} className="frame">
-          <a className="shot" href={`/media/${shot.id}.png`} onClick={event => { event.preventDefault(); setOpen(index); }}>
-            <img src={`/media/${shot.id}.png`} width={1280} height={720} alt={shot.alt} loading="lazy" />
+          <a className="shot" href={`${import.meta.env.BASE_URL}media/${shot.id}.png`} onClick={event => { event.preventDefault(); setOpen(index); }}>
+            <img src={`${import.meta.env.BASE_URL}media/${shot.id}.png`} width={1280} height={720} alt={shot.alt} loading="lazy" />
           </a>
           <figcaption>{shot.caption}</figcaption>
         </figure>)}

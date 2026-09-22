@@ -22,7 +22,7 @@ const COLORS = {
 const WATER_CAMPS = new Set(['PirateCove', 'CoastBattery', 'Lighthouse', 'TurtleBeach', 'Fumarole']);
 const cache = new Map<MapId, Promise<GameMap>>();
 const load = (id: MapId) => {
-  if (!cache.has(id)) cache.set(id, fetch(`/data/maps/${id}.json`).then(response => {
+  if (!cache.has(id)) cache.set(id, fetch(`${import.meta.env.BASE_URL}data/maps/${id}.json`).then(response => {
     if (!response.ok) throw new Error(String(response.status));
     return response.json();
   }));

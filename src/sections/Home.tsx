@@ -11,7 +11,7 @@ export function Home({ onTrailer }: { onTrailer(): void }) {
         <p className="hero-description">{t.hero.description}</p>
         <div className="hero-actions">
           {/* A real link to the file: without JavaScript, or opened in a new tab, it still plays the trailer. */}
-          <PixelButton id="play-trailer" href={`/media/trailer-${lang}-720p.mp4`} onClick={event => { event.preventDefault(); onTrailer(); }}>
+          <PixelButton id="play-trailer" href={`${import.meta.env.BASE_URL}media/trailer-${lang}-720p.mp4`} onClick={event => { event.preventDefault(); onTrailer(); }}>
             <span aria-hidden="true">▶</span> {t.hero.watch}</PixelButton>
           <PixelButton href="#guide" className="secondary">{t.hero.explore}</PixelButton>
         </div>
