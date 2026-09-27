@@ -87,12 +87,12 @@ test('lightbox walks the gallery', async ({ page }) => {
 test('map explorer draws and switches maps', async ({ page }) => {
   await page.goto('/?lang=en');
   await page.locator('#maps').scrollIntoViewIfNeeded();
-  await expect(page.locator('.map-info')).toContainText('96×64');
+  await expect(page.locator('.map-info')).toContainText('160×160');
   const greens = () => page.locator('#maps canvas').evaluate((canvas: HTMLCanvasElement) =>
     new Set(canvas.getContext('2d')!.getImageData(0, 0, canvas.width, canvas.height).data.filter((_, i) => i % 4 === 1)).size);
   expect(await greens()).toBeGreaterThan(3);
-  await page.getByRole('tab', { name: 'The Crossroads' }).click();
-  await expect(page.locator('.map-info')).toContainText('160×160');
+  await page.getByRole('tab', { name: 'The Marshes' }).click();
+  await expect(page.locator('.map-info')).toContainText('88×72');
   await page.locator('#maps canvas').hover({ position: { x: 40, y: 40 } });
   await expect(page.locator('.map-tip')).toBeVisible();
 });

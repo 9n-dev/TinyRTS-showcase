@@ -54,9 +54,11 @@ Gana el último jugador con un Castillo en pie.
   mundo real, P prueba el mapa en menos de una décima de segundo y Esc devuelve al editor. Pincel, rectángulo, cubo y
   selección, copiar y pegar, girar y espejar, y un comprobador que avisa de bases inaccesibles, recursos vigilados o
   falta de sitio para construir.
-- **Tres mapas oficiales**: el Valle (96×64, dos jugadores), La Encrucijada (160×160, cuatro jugadores, simetría
-  rotacional) y Cuatro vientos, hecho con el editor. Los dos primeros salen de generadores en Python que validan
-  simetría, conectividad, anchura de los cuellos y distancias entre bases.
+- **Siete mapas oficiales** para dos, tres y cuatro jugadores: La Encrucijada (160×160, cuatro jugadores, simetría
+  rotacional), dos duelos (El Vado de los Huesos y Las Marismas), dos de hasta tres jugadores (El Bosque Hondo y Los
+  Riscos) y dos más de cuatro (La Corona y El Gran Lago). Salen de generadores en Python que validan la
+  conectividad, la anchura de los cuellos y la distancia a pie a cada objetivo compartido, y su equilibrio se mide
+  con cientos de partidas de IA contra IA por mapa.
 - Ranuras de guardado con autoguardado, español e inglés, 59 sonidos, música y ambiente.
 
 ## Capturas
@@ -86,11 +88,11 @@ que cualquier cambio se verifica sin ratón.
 | --- | --- |
 | Motor | Godot 4.6.2 .NET, C# 12 sobre .NET 8, sin más dependencias |
 | Render | Compatibility (OpenGL 3.3), filtro nearest, ajuste al píxel |
-| Código | Unas 16.000 líneas de C# en 88 ficheros, más 4.300 de tests |
-| Tests | 181, incluidas partidas simuladas completas |
+| Código | Unas 16.000 líneas de C# en 90 ficheros, más 4.500 de tests |
+| Tests | 211, incluidas partidas simuladas completas |
 | Rendimiento | 4 IAs y 300 unidades a 60 fps con un tick de simulación de 1,3 ms |
-| Contenido | 29 tipos de unidad, 7 edificios, 9 tecnologías, 21 tipos de campamento, 3 mapas |
-| Textos | 519 cadenas traducidas a español e inglés |
+| Contenido | 29 tipos de unidad, 7 edificios, 9 tecnologías, 21 tipos de campamento, 7 mapas |
+| Textos | 585 cadenas traducidas a español e inglés |
 
 El terreno y las capas estáticas son comandos de dibujo retenidos, no nodos; solo lo que se anima es un sprite; los
 anillos de selección, la espuma y las sombras son nodos únicos que se redibujan cuando algo cambia. La escena entera se

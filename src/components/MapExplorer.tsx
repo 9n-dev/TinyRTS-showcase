@@ -99,7 +99,7 @@ function drawMap(canvas: HTMLCanvasElement, map: GameMap, width: number, text: M
 export function MapExplorer() {
   const { t } = useContent();
   const { list, legend, text } = t.maps;
-  const [id, setId] = useState<MapId>('valley');
+  const [id, setId] = useState<MapId>('crossroads');
   const [map, setMap] = useState<GameMap>();
   const [failed, setFailed] = useState(false);
   const [tip, setTip] = useState<Tip>();

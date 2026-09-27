@@ -96,27 +96,47 @@ export const es: Content = {
         body: "Pinta terreno, recursos, campamentos y bases sobre el mundo real, pulsa P y estás jugando tu mapa en menos de una décima de segundo; Esc te devuelve al editor. Un comprobador avisa de bases inaccesibles o recursos vigilados, y cada mapa es un fichero que puedes compartir."
       }
     ],
-    extras: "Y además: tutorial, tres mapas oficiales para dos y cuatro jugadores, nueve tecnologías en tres ramas, ranuras de guardado con autoguardado, 59 sonidos, música y ambiente, en español e inglés."
+    extras: "Y además: tutorial, siete mapas oficiales para dos, tres y cuatro jugadores, nueve tecnologías en tres ramas, ranuras de guardado con autoguardado, 59 sonidos, música y ambiente, en español e inglés."
   },
   maps: {
     title: "Los mapas",
     heading: "Los mapas, dibujados desde sus datos",
-    intro: "Estos son los tres mapas oficiales tal y como los guarda el juego: un carácter por casilla para el terreno, más listas de árboles, vetas de oro, campamentos, edificios neutrales y posiciones de salida. Pasa el ratón para ver qué hay en cada sitio.",
+    intro: "Estos son los siete mapas oficiales tal y como los guarda el juego: un carácter por casilla para el terreno, más listas de árboles, vetas de oro, campamentos, edificios neutrales y posiciones de salida. Pasa el ratón para ver qué hay en cada sitio.",
     list: [
-      {
-        id: "valley",
-        name: "El Valle",
-        desc: "Dos jugadores frente a frente en un valle con río: 27 campamentos, una cala pirata en la costa noreste y aldeas gnomas y goblins cerradas por bosque."
-      },
       {
         id: "crossroads",
         name: "La Encrucijada",
         desc: "Cuatro jugadores con simetría rotacional de 90°: cada base tiene su expansión natural, dos rutas hacia las vecinas, 33 campamentos y una taberna en el centro."
       },
       {
-        id: "cuatro-vientos",
-        name: "Cuatro vientos",
-        desc: "Hecho con el editor del juego: una meseta con escalera al norte de cada base y campamentos entre medias. Sus estacas enseñan el radio de campamento que usa el editor."
+        id: "vado",
+        name: "El Vado de los Huesos",
+        desc: "Duelo a orillas de un río con tres pasos: el vado de los patos, la isla del troll y el viejo campo de batalla de los huesos, con los bandidos al acecho en su banco de arena."
+      },
+      {
+        id: "marismas",
+        name: "Las Marismas",
+        desc: "Duelo en un pantano de charcas con tres pasos; en el centro, el Túmulo, una meseta en mitad del lago con un cementerio y dos vetas ricas arriba."
+      },
+      {
+        id: "bosque-hondo",
+        name: "El Bosque Hondo",
+        desc: "De dos a tres jugadores en claros de un bosque profundo, unidos por un anillo de caminos; en el centro, los muertos del Claro Maldito guardan el oro rico."
+      },
+      {
+        id: "riscos",
+        name: "Los Riscos",
+        desc: "De dos a tres jugadores en tierras altas y secas: farallones que parten los prados y, en el centro, la Peña del troll, con dos escaleras en cada cara."
+      },
+      {
+        id: "corona",
+        name: "La Corona",
+        desc: "Cuatro esquinas con su propio paisaje, cuatro valles en disputa y en el centro la Corona, una meseta con cuatro vetas ricas y tres trolls en lo alto."
+      },
+      {
+        id: "gran-lago",
+        name: "El Gran Lago",
+        desc: "Cuatro esquinas alrededor de un gran lago; en su isla, el minotauro guarda cuatro vetas ricas, y se llega por una calzada desde cada orilla."
       }
     ],
     legend: [
@@ -214,7 +234,23 @@ export const es: Content = {
         Swamp: "Ciénaga",
         ThiefHideout: "Escondrijo de ladrones",
         Troll: "Guarida del troll",
-        TurtleBeach: "Playa de tortugas"
+        TurtleBeach: "Playa de tortugas",
+        bandits: "Bandidos del camino",
+        bears: "Osera",
+        gnomeTown: "Aldea gnoma",
+        goblinTown: "Aldea goblin",
+        oldGraveyard: "Cementerio viejo",
+        snakes: "Nido de serpientes",
+        spiderCave: "Cueva de las arañas",
+        trollHill: "La colina del troll",
+        trollIsle: "El troll de la isla",
+        barrow: "El túmulo",
+        hive: "La colmena",
+        swampLizards: "Los lagartos del pantano",
+        gnolls: "Campamento gnoll",
+        trollCrag: "El troll de la Peña",
+        pandas: "La arboleda de los pandas",
+        cursedGlade: "Los muertos del Claro Maldito"
       }
     }
   },
@@ -290,11 +326,11 @@ export const es: Content = {
       },
       {
         key: "Código",
-        value: "Unas {16000} líneas de C# en {88} ficheros, más {4300} de tests"
+        value: "Unas {16000} líneas de C# en {90} ficheros, más {4500} de tests"
       },
       {
         key: "Tests",
-        value: "{181}, incluidas partidas simuladas completas"
+        value: "{211}, incluidas partidas simuladas completas"
       },
       {
         key: "Rendimiento",
@@ -302,11 +338,11 @@ export const es: Content = {
       },
       {
         key: "Contenido",
-        value: "{29} tipos de unidad, 7 edificios, 9 tecnologías, {21} tipos de campamento, 3 mapas"
+        value: "{29} tipos de unidad, 7 edificios, 9 tecnologías, {21} tipos de campamento, 7 mapas"
       },
       {
         key: "Textos",
-        value: "{519} cadenas traducidas a español e inglés"
+        value: "{585} cadenas traducidas a español e inglés"
       },
       {
         key: "Simulación",
@@ -378,7 +414,7 @@ export const es: Content = {
       },
       {
         key: "Mapas",
-        value: "3 oficiales y editor integrado"
+        value: "7 oficiales y editor integrado"
       },
       {
         key: "Guardado",

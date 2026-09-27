@@ -3,7 +3,7 @@ import { guide } from './guide.en';
 
 /** Sections with a link in the navigation, in page order. 'home', 'features' and 'credits' exist on the page but not in the menu. */
 export const SECTIONS = ['game', 'guide', 'maps', 'gallery', 'status', 'built'] as const;
-export type MapId = 'valley' | 'crossroads' | 'cuatro-vientos';
+export type MapId = 'crossroads' | 'vado' | 'marismas' | 'bosque-hondo' | 'riscos' | 'corona' | 'gran-lago';
 type Media = { id: string; alt: string; caption: string };
 /** Words the map explorer paints and says. '{n}', '{t}', '{w}'… are filled in by MapExplorer. */
 export type MapText = {
@@ -143,27 +143,47 @@ export const en: Content = {
         body: "Paint terrain, resources, camps and bases over the real world, press P and you are playing your map in under a tenth of a second; Esc takes you back. A checker warns about unreachable bases or guarded resources, and a map is a single file you can share."
       }
     ],
-    extras: "And also: a tutorial, three official maps for two and four players, nine technologies in three branches, save slots with autosave, 59 sound effects, music and ambience, in English and Spanish."
+    extras: "And also: a tutorial, seven official maps for two, three and four players, nine technologies in three branches, save slots with autosave, 59 sound effects, music and ambience, in English and Spanish."
   },
   maps: {
     title: "The maps",
     heading: "The maps, drawn from their data",
-    intro: "These are the three official maps as the game stores them: one character per tile for the terrain, plus lists of trees, gold veins, camps, neutral buildings and start positions. Hover to see what is where.",
+    intro: "These are the seven official maps as the game stores them: one character per tile for the terrain, plus lists of trees, gold veins, camps, neutral buildings and start positions. Hover to see what is where.",
     list: [
-      {
-        id: "valley",
-        name: "The Valley",
-        desc: "Two players face each other across a river valley: 27 camps, a pirate cove on the north-east coast and gnome and goblin villages closed by forest."
-      },
       {
         id: "crossroads",
         name: "The Crossroads",
-        desc: "Four players with 90° rotational symmetry: each base has a natural expansion, two routes to its neighbours, 33 camps and a tavern at the centre."
+        desc: "Four players with 90° rotational symmetry: every base has a natural expansion and two routes to each neighbour, 33 camps and a tavern in the middle."
       },
       {
-        id: "cuatro-vientos",
-        name: "Four Winds",
-        desc: "Made with the in-game editor: a plateau with a stair north of each base and camps in between. Its stakes show the camp radius the editor uses."
+        id: "vado",
+        name: "The Ford of Bones",
+        desc: "A duel across a river with three crossings: the duck ford, the troll's island and the old battlefield of bones, with bandits lying in wait on their sandbank."
+      },
+      {
+        id: "marismas",
+        name: "The Marshes",
+        desc: "A duel across a marsh of ponds with three crossings; in the middle, the Barrow, a plateau in a lake with a graveyard and two rich veins on top."
+      },
+      {
+        id: "bosque-hondo",
+        name: "The Deep Forest",
+        desc: "Two to three players in clearings of a deep forest, linked by a ring of roads; in the middle, the dead of the Cursed Glade guard the rich gold."
+      },
+      {
+        id: "riscos",
+        name: "The Crags",
+        desc: "Two to three players on dry highlands: cliffs split the meadows and, in the middle, the troll's Crag, with two stairways on each face."
+      },
+      {
+        id: "corona",
+        name: "The Crown",
+        desc: "Four corners with their own landscape, four contested valleys and, in the middle, the Crown, a plateau with four rich veins and three trolls on top."
+      },
+      {
+        id: "gran-lago",
+        name: "The Great Lake",
+        desc: "Four corners around a great lake; on its island, the minotaur guards four rich veins, reached by a causeway from each shore."
       }
     ],
     legend: [
@@ -261,7 +281,23 @@ export const en: Content = {
         Swamp: "Swamp",
         ThiefHideout: "Thief hideout",
         Troll: "Troll lair",
-        TurtleBeach: "Turtle beach"
+        TurtleBeach: "Turtle beach",
+        bandits: "Road bandits",
+        bears: "Bear den",
+        gnomeTown: "Gnome town",
+        goblinTown: "Goblin town",
+        oldGraveyard: "Old graveyard",
+        snakes: "Snake nest",
+        spiderCave: "Spider cave",
+        trollHill: "Troll hill",
+        trollIsle: "Island troll",
+        barrow: "The barrow",
+        hive: "The hive",
+        swampLizards: "Swamp lizards",
+        gnolls: "Gnoll camp",
+        trollCrag: "The troll of the Crag",
+        pandas: "The panda grove",
+        cursedGlade: "The dead of the Cursed Glade"
       }
     }
   },
@@ -337,11 +373,11 @@ export const en: Content = {
       },
       {
         key: "Code",
-        value: "About {16000} lines of C# in {88} files, plus {4300} lines of tests"
+        value: "About {16000} lines of C# in {90} files, plus {4500} lines of tests"
       },
       {
         key: "Tests",
-        value: "{181}, including full simulated games"
+        value: "{211}, including full simulated games"
       },
       {
         key: "Performance",
@@ -349,11 +385,11 @@ export const en: Content = {
       },
       {
         key: "Content",
-        value: "{29} unit types, 7 buildings, 9 technologies, {21} camp kinds, 3 maps"
+        value: "{29} unit types, 7 buildings, 9 technologies, {21} camp kinds, 7 maps"
       },
       {
         key: "Text",
-        value: "{519} localized strings in Spanish and English"
+        value: "{585} localized strings in Spanish and English"
       },
       {
         key: "Simulation",
@@ -425,7 +461,7 @@ export const en: Content = {
       },
       {
         key: "Maps",
-        value: "3 official maps and a built-in editor"
+        value: "7 official maps and a built-in editor"
       },
       {
         key: "Saving",

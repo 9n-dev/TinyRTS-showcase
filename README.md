@@ -51,9 +51,11 @@ The last player with a Castle standing wins.
   world, press P to play the map in under a tenth of a second, Esc to keep editing. Brush, rectangle, fill and
   selection tools, copy and paste, rotate and mirror, and a validator that warns about unreachable bases, guarded
   resources or missing building room.
-- **Three official maps**: the Valley (96×64, two players), the Crossroads (160×160, four players, rotational
-  symmetry) and Four Winds, made with the editor. The first two come from Python generators that validate
-  symmetry, connectivity, choke widths and travel distances between bases.
+- **Seven official maps** for two, three and four players: the Crossroads (160×160, four players, rotational
+  symmetry), two duels (the Ford of Bones and the Marshes), two for up to three players (the Deep Forest and the
+  Crags) and two more for four (the Crown and the Great Lake). They come from Python generators that validate
+  connectivity, choke widths and walking distances to every shared objective, and their balance is measured with
+  hundreds of AI-against-AI games per map.
 - Save slots with autosave, Spanish and English, 59 sound effects, music and ambience.
 
 ## Screenshots
@@ -83,11 +85,11 @@ change can be verified without a mouse.
 | --- | --- |
 | Engine | Godot 4.6.2 .NET, C# 12 on .NET 8, no other dependencies |
 | Renderer | Compatibility (OpenGL 3.3), nearest filtering, pixel snapping |
-| Code | About 16,000 lines of C# in 88 files, plus 4,300 lines of tests |
-| Tests | 181, including full simulated games |
+| Code | About 16,000 lines of C# in 90 files, plus 4,500 lines of tests |
+| Tests | 211, including full simulated games |
 | Performance | 4 AIs and 300 units at 60 fps with a 1.3 ms simulation tick |
-| Content | 29 unit types, 7 buildings, 9 technologies, 21 camp kinds, 3 maps |
-| Text | 519 localized strings in Spanish and English |
+| Content | 29 unit types, 7 buildings, 9 technologies, 21 camp kinds, 7 maps |
+| Text | 585 localized strings in Spanish and English |
 
 Terrain and static layers are retained draw commands, not nodes; sprites exist only for what animates; selection
 rings, foam and shadows are single nodes that redraw when something changes. The whole scene stays around a dozen
